@@ -1,0 +1,2 @@
+<a class="brand" href="#" tal:content="context/@@plone_portal_state/portal_title"
+    tal:attributes="href context/@@plone_portal_state/navigation_root_url">Site Title</a>

@@ -1,0 +1,21 @@
+<tal:define
+     tal:define="navigation_root_url view/navigation_root_url;">
+    <form name="searchform" class="pull-right"
+          action="search"
+          tal:attributes="action string:${navigation_root_url}/search;">
+
+        <input name="SearchableText"
+               type="text"
+               size="18"
+               value=""
+               title="Search Site"
+               class="input-medium"
+               accesskey="4"
+               i18n:attributes="title title_search_site;"
+               tal:attributes="value request/form/SearchableText|nothing;"
+               placeholder="Search"
+               class="searchField inputLabel" />
+
+        <button class="btn" type="submit">Search</button>
+    </form>
+</tal:define>

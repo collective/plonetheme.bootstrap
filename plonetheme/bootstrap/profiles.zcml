@@ -1,0 +1,22 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="plonetheme.bootstrap">
+
+  <genericsetup:registerProfile
+      name="default"
+      title="Bootstrap Theme"
+      directory="profiles/default"
+      description='Extension profile for the "Bootstrap Theme" Plone theme.'
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="plonetheme.bootstrap.various"
+      title="Bootstrap Theme: miscellaneous import steps"
+      description="Various import steps that are not handled by GS import/export handlers."
+      handler="plonetheme.bootstrap.setuphandlers.setupVarious">
+    <depends name="skins"/>
+  </genericsetup:importStep>
+
+</configure>

@@ -1,0 +1,47 @@
+<tal:sections tal:define="nav context/@@bootstrap_utils/navigation;
+                          selected_tab python:view.selected_portal_tab"
+     tal:condition="nav"
+     i18n:domain="plone">
+    <h5 class="hiddenStructure" i18n:translate="heading_sections">Sections</h5>
+    
+    <ul class="nav" id="navigation">
+        <li id="portaltab-index_html">
+            <a title="" tal:attributes="href context/@@plone_portal_state/navigation_root_url">Home</a>
+        </li>
+        <tal:tabs tal:repeat="tab nav">
+            <tal:define tal:define="item tab/item;
+                                    children tab/children;">
+                <li tal:define="tid item/id"
+                    tal:condition="not: item/exclude_from_nav"
+                    tal:attributes="id string:portaltab-${tid};
+                                    class python:selected_tab==tid and 'active' or '';
+                                    data-dropdown python: children and 'dropdown' or '';">
+                    <a href=""
+                        tal:content="item/Title"
+                        tal:attributes="href item/getURL;
+                                        title item/Description|nothing;
+                                        class python: children and 'dropdown-toggle' or '';">
+                        Tab Name
+                    </a>
+                    <ul class="dropdown-menu" tal:condition="children">
+                        <tal:tabs tal:repeat="tab children">
+                            <tal:define tal:define="item tab/item;
+                                                    children tab/children;">
+                                <li tal:define="tid item/id"
+                                    tal:attributes="id string:portaltab-${tid};
+                                                    class python:selected_tab==tid and 'active' or ''">
+                                    <a href=""
+                                        tal:content="item/Title"
+                                        tal:attributes="href item/getURL;
+                                                        title item/Description|nothing;">
+                                        Tab Name
+                                    </a>
+                                </li>
+                            </tal:define>
+                        </tal:tabs>
+                    </ul>
+                </li>
+            </tal:define>
+        </tal:tabs>
+    </ul>
+</tal:sections>

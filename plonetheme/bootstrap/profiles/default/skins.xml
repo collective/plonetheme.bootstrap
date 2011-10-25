@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!-- This file holds the setup configuration for the portal_skins tool -->
+
+<!-- Change the value of these parameters to modify portal_skins behavior:
+     - allow_any: change it to True if you want users to be able to select the
+       skin to use from their personal preferences management page. In the
+       ZMI, this value is known as 'Skin flexibility'.
+     - cookie_persistence: change it to True if you want to make the skin cookie
+       persist indefinitely. In the ZMI, this value is known as 'Skin Cookie
+       persistence'.
+       -->
+<object name="portal_skins" allow_any="False" cookie_persistence="False"
+   default_skin="Bootstrap Theme">
+
+ <!-- This list registers the folders that are stored in the skins directory
+      of your product (on the filesystem) as Filesystem Directory Views within
+      the portal_skins tool, so that they become usable as skin layers.
+      -->
+ <object name="plonetheme_bootstrap_custom_images"
+    meta_type="Filesystem Directory View"
+    directory="plonetheme.bootstrap:skins/plonetheme_bootstrap_custom_images"/>
+ <object name="plonetheme_bootstrap_custom_templates"
+    meta_type="Filesystem Directory View"
+    directory="plonetheme.bootstrap:skins/plonetheme_bootstrap_custom_templates"/>
+ <object name="plonetheme_bootstrap_styles"
+    meta_type="Filesystem Directory View"
+    directory="plonetheme.bootstrap:skins/plonetheme_bootstrap_styles"/>
+
+ <!-- A skin-path in this file corresponds to a Skin Selection in the
+     'Properties' tab of the portal_skins tool, in the ZMI.
+     You can define for each new skin path the layers that it holds. A new
+     skin can be based on another existing one by using the 'based-on'
+     attribute.
+     The definition of a layer accepts these parameters:
+       - name: quite self explanatory, the name of the layer.
+       - insert-before: name of the layer before which it must be added.
+       - insert-after: name of the layer after which it must be added.
+       Note: insert-before (and -after) accepts the value "*" which means
+       "all".
+       -->
+ <skin-path name="Bootstrap Theme" based-on="Plone Default">
+  <layer name="plonetheme_bootstrap_custom_images"
+     insert-after="custom"/>
+  <layer name="plonetheme_bootstrap_custom_templates"
+     insert-after="plonetheme_bootstrap_custom_images"/>
+  <layer name="plonetheme_bootstrap_styles"
+     insert-after="plonetheme_bootstrap_custom_templates"/>
+ </skin-path>
+
+</object>

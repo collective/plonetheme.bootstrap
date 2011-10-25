@@ -1,0 +1,25 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="plonetheme.bootstrap">
+
+  <interface
+      interface=".interfaces.IThemeSpecific"
+      type="zope.publisher.interfaces.browser.IBrowserSkinType"
+      name="Bootstrap Theme"
+      />
+  
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:templateOverrides
+      layer=".interfaces.IThemeSpecific"
+      directory="templates" />
+
+  <browser:page
+      name="bootstrap_utils"
+      for="*"
+      permission="zope.Public"
+      class=".utils.BootstrapUtils"
+      allowed_interface=".interfaces.IBootstrapUtils"
+      />
+
+</configure>

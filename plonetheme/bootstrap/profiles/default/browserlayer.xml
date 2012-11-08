@@ -1,4 +1,5 @@
+<?xml version="1.0"?>
 <layers>
-    <layer name="plonetheme.sunburst"
-           interface="plonetheme.sunburst.browser.interfaces.IThemeSpecific" />
+    <layer name="plonetheme.bootstrap"
+           interface="plonetheme.bootstrap.browser.interfaces.IThemeSpecific" />
 </layers>

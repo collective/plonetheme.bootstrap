@@ -5,10 +5,12 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="plonetheme.bootstrap">
 
-  <five:registerPackage package="." initialize=".initialize" />
+
   <include package=".browser" />
+
   <include file="skins.zcml" />
+
   <include file="profiles.zcml" />
-  <i18n:registerTranslations directory="locales" />
+
 
 </configure>

@@ -16,7 +16,10 @@
       title="Bootstrap Theme: miscellaneous import steps"
       description="Various import steps that are not handled by GS import/export handlers."
       handler="plonetheme.bootstrap.setuphandlers.setupVarious">
+
+    <depends name="actions"/>
     <depends name="skins"/>
+
   </genericsetup:importStep>
 
 </configure>

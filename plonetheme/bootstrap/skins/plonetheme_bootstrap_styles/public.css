@@ -46,36 +46,31 @@ iframe { border-width: 0; border-style:none; }
 }
 
 
-#portal-globalnav {
+nav {
     clear: both;
-    font-size: 80%;
     background: #ddd;
-    /* ensure top navigation dont touches portlets, content etc.. #10491 */
     margin: 0 0 1em 0;
 }
-#portal-globalnav li {
-}
-#portal-globalnav li a {
+/*
+nav li a {
     display: inline-block;
     padding: 0.5em 1em 2em 1em;
     background: #ddd;
     min-width: 6em;
     white-space: normal;
-    /*TODO: Once we have removed the whitespace from the nav template, this can be put back*/
-    /*border-bottom: 0.1em solid White;*/
     border-right: 0.1em solid white;
 }
 
-#portal-globalnav .selected a,
-#portal-globalnav a:hover {
+nav .selected a,
+nav a:hover {
     background: #205c90;
     color: White;
 }
-#portal-globalnav .selected a:hover {
+nav .selected a:hover {
     background: #ddd;
     color: #205c90;
 }
-
+*/
 #portal-personaltools {
     float: right;
     background: #e3e3e3;
@@ -398,7 +393,7 @@ dl.portlet ul.navTree .navTreeCurrentItem {
 #content {
     line-height: 1.5em;
     clear: both;
-    font-size: 80%;
+    font-size: 90%;
     margin: 1em 0.25em 2em 0.25em;
 }
 
@@ -1047,6 +1042,9 @@ dl.actionMenu div {
 }
 dl.actionMenu dt {
     font-weight: normal;
+}
+dl.actionMenu ul {
+    margin: 0;
 }
 span.arrowDownAlternative {
     font-size: 80%;

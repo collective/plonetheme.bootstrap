@@ -27,71 +27,6 @@ iframe { border-width: 0; border-style:none; }
 
 /* @end */
 
-/* @group Basics */
-
-body {
-    font: 100% Arial, FreeSans, sans-serif;
-    background: White;
-    color: Black;
-    /* width: 58em; margin: 1em auto; */
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Helvetica Neue", Arial, FreeSans, sans-serif;
-    font-weight: bold;
-    color: Black;
-    line-height: 1.5em;
-}
-h1, h2 {
-    letter-spacing: -0.05em;
-}
-h1 {
-    font-size: 2em;
-}
-h2 {
-    font-size: 1.75em;
-}
-h3 {
-    font-size: 1.25em;
-}
-h4 {
-    font-size: 1.25em;
-}
-h5 {
-    font-size: 1em;
-}
-h6 {
-    font-size: 0.8em;
-}
-h2, h3, h4, h5, h6 {
-    color: #444;
-}
-h2 a, h3 a, h4 a {
-    border-bottom: none !important;
-}
-
-p {
-}
-
-a:link, a:visited {
-    color: #205c90;
-}
-a:focus img {
-    outline: thin dotted;
-}
-dt {
-    font-weight: bold;
-}
-input {
-    font-family: "Lucida Grande", Arial, FreeSans;
-}
-
-q {
-    quotes: "“" "”" "‘" "’";
-}
-
-/* @end */
-
 /* @group Navigation/search */
 
 #portal-header {
@@ -103,6 +38,13 @@ q {
     display: inline-block;
     margin: 1.375em 0;
 }
+/* removes extra space above logo in IE6 and IE7 */
+/* .ie6 and .ie7 is set on <html> by Modernizr library */
+.ie6 #portal-logo,
+.ie7 #portal-logo {
+    margin-top: 0;
+}
+
 
 #portal-globalnav {
     clear: both;
@@ -132,6 +74,27 @@ q {
 #portal-globalnav .selected a:hover {
     background: #ddd;
     color: #205c90;
+}
+
+#portal-personaltools {
+    float: right;
+    background: #e3e3e3;
+    position: relative;
+    z-index: 3; /* personaltools should be above #portal-header (with z-index: 2) */
+    top: 0;
+    right: 0;
+    padding: 0.25em 0.5em;
+    font-size: 80%;
+    border-bottom-right-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    -webkit-border-bottom-right-radius: 0.5em;
+    -webkit-border-bottom-left-radius: 0.5em;
+    -moz-border-radius-bottomleft: 0.5em;
+    -moz-border-radius-bottomright: 0.5em;
+}
+#portal-personaltools #anon-personalbar a {
+    float: left;
+    margin: 0 0.5em;
 }
 
 #portal-languageselector {
@@ -251,6 +214,10 @@ input.searchField {
     display: inline-block;
 }
 
+.breadcrumbSeparator {
+      color: #666666;
+}
+
 /* @end */
 
 
@@ -325,9 +292,16 @@ div.portletAssignments {
 div.portletAssignments .managedPortletActions {
     float: right;
 }
-div.portletAssignments .managedPortletActions a {
+div.portletAssignments .managedPortletActions a, div.portletAssignments .managedPortletActions button {
     margin: 0 0.25em;
     border: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: #205C90;
+}
+
+div.portletAssignments .managedPortletActions form {
+    display: inline;
 }
 
 dl.portlet dt a:link,
@@ -507,13 +481,15 @@ dl.portlet a:hover {
 }
 
 #content ol,
-dl.portlet ol {
+dl.portlet ol,
+div.portletStaticText ol {
     list-style-type: decimal;
     margin-left: 2em;
 }
 
 #content li,
-dl.portlet li {
+dl.portlet li,
+div.portletStaticText li {
     margin-bottom: 0.25em;
     line-height: 1.5em;
     display: list-item;
@@ -619,9 +595,125 @@ dl.portlet li {
     clear: right;
     margin: 0 0 0.5em 1em;
 }
+/* For event view template, changed headerless table to headings and divs,
+ * for better accessibility.  */
 
+#content .eventDetails {
+    border-color: #CCCCCC;
+    border-style: solid;
+    border-width: 0.08em;
+    width: 22em;
+    margin-top: 1em;
+}
+#content .eventDetails h2 {
+    background-color: #DDDDDD;
+    font-size: 100%;
+    letter-spacing: 0;
+    padding: 0.5em;
+    padding-left: 1em;
+}
+#content .eventDetails .eventDetail {
+    clear: both;
+}
+#content .eventDetails .eventDetail h3,
+#content .eventDetails .eventDetail div {
+    padding: 2%;
+}
+#content .eventDetails .eventDetail h3 {
+    float: left;
+    font-size: 100%;
+    text-align: right;
+    width: 37%;
+}
+#content .eventDetails .eventDetail div {
+    float: left;
+    width: 55%;
+}
 /* @end */
 
+
+
+/* @group Data tables */
+
+table.listing,
+table.plain {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+table.invisible td,
+table.invisible th,
+table.plain td,
+table.plain th,
+table.listing td,
+table.listing th {
+    padding: 0.5em 1em;
+    vertical-align: top;
+}
+table.plain th,
+table.plain td {
+    border: 1px solid #ddd;
+}
+
+table.listing td.listingCheckbox,
+table.listing th.listingCheckbox {
+    text-align: center;
+}
+
+
+table.listing {
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+table.listing .top {
+    border-left: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+table.listing th {
+    text-align: left;
+    color: #666;
+    border: 0.1em solid #e7e7e7;
+    border-style: solid solid none;
+    background: #ddd;
+}
+table.listing tr.odd th {
+    border: 0.1em solid #fff;
+    border-style: solid solid none none;
+}
+table.listing tbody th {
+    font-weight: bold;
+}
+table.listing tbody tr {
+    text-align:left;
+}
+table.listing tbody tr.odd {
+    background: #eee;
+}
+table.listing tbody tr td {
+    background: transparent;
+}
+table.listing tbody tr.odd td {
+    background: #eee;
+}
+table.listing td {
+    border-right: 1px solid #ddd;
+}
+.icons-on table.listing td {
+    line-height: 2em;
+}
+table.listing a {
+    border: none;
+    display: inline-block;
+    border-bottom: none !important;
+}
+
+table.listing td.draggable {
+    text-shadow: White 1px 1px 1px;
+    background: #ddd !important;
+    border-bottom: 1px solid white;
+    padding: 0.4em 0.4em 0 0.5em;
+}
 /* Vertical table data listings */
 table.vertical {
 }
@@ -754,14 +846,28 @@ dl.error dd {
 #edit-bar {
     background-color: #75ad0a;
     border: 0.25em solid #75ad0a;
-    font-size: 80%;
+    font-size: 90%;
     min-height: 2em;
-    margin-bottom: 0;
+    margin-bottom: 1em;
     padding-top: 0.05em;
 }
+
+#edit-bar ul, #edit-bar ol {
+    margin: 0;
+}
+
+#edit-bar dl {
+    margin-bottom: 0;
+}
+
 #content-views {
     float: left;
     background-color: #75ad0a;
+}
+/* fix shift on content views list under ie6 */
+/* .ie6 is set on <html> by Modernizr library */
+.ie6 ul#content-views{
+    margin: -2px -3px 0px -3px;
 }
 #content-views a {
     color: White;
@@ -769,13 +875,11 @@ dl.error dd {
 
 /* Shared CSS between the two tab types */
 #edit-bar,
-#content ul.formTabs {
+#content ul.formTabs,
+#content-core ul.formTabs {
     display: block;
     border-style: solid solid none solid;
     margin-left: 0;
-}
-
-#content ul.formTabs {
     border-top-right-radius: 0.5em;
     border-top-left-radius: 0.5em;
     -webkit-border-top-right-radius: 0.5em;
@@ -783,38 +887,39 @@ dl.error dd {
     -moz-border-radius-topleft: 0.5em;
     -moz-border-radius-topright: 0.5em;
 }
-
-#content li.formTab {
+#content li.formTab,
+#content-core li.formTab {
     display: inline;
-    margin-right:0.15em;
+    margin-right:0.25em;
 }
 #content-views a,
-#content li.formTab a {
+#content li.formTab a,
+#content-core li.formTab a {
     /* this isn't supported by all browsers, so we keep it in a separate rule */
     display: inline-block;
 }
 #content-views a,
-#content li.formTab a {
+#content li.formTab a,
+#content-core li.formTab a {
     line-height: 2em;
-    padding: 0 0.25em;
+    padding: 0 0.75em;
     text-decoration: none;
     border: none;
     margin: 0 ;
 }
 #content-views li.selected a,
-#content li.formTab a.selected {
+#content li.formTab a.selected,
+#content-core li.formTab a.selected {
     font-weight: bold;
 }
 #content-views li.selected a,
 #content-views li a:hover,
 #content li.formTab a.selected,
-#content li.formTab a:hover {
+#content li.formTab a:hover,
+#content-core li.formTab a.selected,
+#content-core li.formTab a:hover {
     background: White;
     color: Black;
-}
-
-#content li.formTab a.selected,
-#content li.formTab a:hover {
     border-top-right-radius: 0.5em;
     border-top-left-radius: 0.5em;
     -webkit-border-top-right-radius: 0.5em;
@@ -822,28 +927,62 @@ dl.error dd {
     -moz-border-radius-topleft: 0.5em;
     -moz-border-radius-topright: 0.5em;
 }
-#content li.formTab a.notify {
+#content li.formTab a.notify,
+#content-core li.formTab a.notify {
     background-color: red;
     color: White;
 }
-#content li.formTab a.required span {
-    background-image: url(required.png);
-    background-position: center right;
-    background-repeat: no-repeat;
-    padding-right: 1em;
+#content li.formTab a.required span:after,
+#content-core li.formTab a.required span:after,
+div.field span.required:after {
+    content: "■";
+    color: Red;
+    padding-left: 0.2em;
 }
-#content fieldset.formPanel {
+#content fieldset.formPanel,
+#content-core fieldset.formPanel {
     border: none;
 }
-#content fieldset.formPanel.hidden {
+#content fieldset.formPanel.hidden,
+#content-core fieldset.formPanel.hidden {
     display: none;
 }
-#content div.formControls input.hidden {
+#content div.formControls input.hidden,
+#content-core div.formControls input.hidden {
     display: none;
 }
 
 /* @end */
 
+/* @group Pulldown menus */
+
+/* @group Personal tools pulldown */
+#portal-personaltools dl {
+}
+#portal-personaltools dt {
+    font-weight: normal;
+}
+#portal-personaltools dt.actionMenuHeader a:after {
+    content: " ▼";
+}
+#portal-personaltools dd {
+    right: 0;
+    padding-top: 0.5em;
+}
+#portal-personaltools dd {
+    background: #e3e3e3;
+    padding-bottom: 0.5em;
+}
+#portal-personaltools dd a {
+    line-height: 2em;
+    padding: 0 0.75em;
+}
+#portal-personaltools dd a:hover {
+    background: #205c90;
+    color: White;
+}
+
+/* @end */
 
 /* @group Content pulldowns */
 
@@ -855,7 +994,7 @@ dl.error dd {
 }
 #contentActionMenus dl.actionMenu.activated dd {
     border-bottom: 0.5em solid #75ad0a;
-    right: -3px;
+        right: -3px;
 }
 #contentActionMenus dl.actionMenu.activated dd a:hover,
 #contentActionMenus dl.actionMenu.activated dd .actionMenuSelected {
@@ -880,7 +1019,7 @@ dl.error dd {
     background: #75ad0a;
     margin: 0;
     position: relative;
-    top: -0.03em;
+    top: -0.23em;
     right:-0.24em;
     padding: 0.1em 0.24em 0 0;
     border-radius: 0.5em;
@@ -899,7 +1038,7 @@ dl.actionMenu {
     float: right;
     white-space: nowrap;
     position: relative;
-    margin-left: 0.1em;
+    margin-left: 0.5em;
 }
 dl.actionMenu a,
 dl.actionMenu div {
@@ -922,6 +1061,12 @@ dl.actionMenu.activated dd {
     position: absolute;
     width: auto;
     min-width: 100%;
+    border-bottom-right-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    -webkit-border-bottom-right-radius: 0.5em;
+    -webkit-border-bottom-left-radius: 0.5em;
+    -moz-border-radius-bottomleft: 0.5em;
+    -moz-border-radius-bottomright: 0.5em;
 }
 dl.actionMenu.activated dt a,
 dl.actionMenu.activated dd a,
@@ -1159,7 +1304,6 @@ dl.collapsedInlineCollapsible dt.collapsibleHeader {
 .label {
     font-weight: bold;
     display: inline;
-    padding-right: 0.5em;
 }
 .optionsToggle {
     border: 0.1em solid #8cacbb;
@@ -1173,7 +1317,6 @@ dl.collapsedInlineCollapsible dt.collapsibleHeader {
 .highlightedSearchTerm {
    background-color: #ffa;
 }
-
 dl.searchResults .highlightedSearchTerm {
     background-color: transparent;
     font-weight: bold;
@@ -1194,12 +1337,97 @@ dl.searchResults .highlightedSearchTerm {
 
 /* @group Search results page */
 
-form.searchPage {
-    text-align:center;
+fieldset#search-field {
+    border: none !important;
+    text-align: center;
 }
-
 input.searchPage {
     font-size:200% !important;
+}
+#rss-subscription {
+    float: left;
+    line-height: 3em;
+}
+#search-results-bar .actionMenuContent {
+    margin-top: 1em;
+    padding: 0;
+}
+#search-filter {
+    background: #ddd;
+    margin: 0;
+    padding: 0;
+}
+#content #search-filter fieldset {
+    border: none !important;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+#content #search-filter legend {
+    background: transparent;
+    font-size: 1.1em;
+    padding: 0.5em 0.9em;
+    font-weight: bold;
+}
+#search-filter .field {
+    background: #eee;
+    padding: 1em 1.5em;
+    margin: 0;
+}
+#search-filter .field label {
+    font-weight: normal;
+}
+#search-filter .formControls {
+    text-align:center
+}
+#search-results-wrapper {
+    margin-top: 1em;
+}
+form.searchPage h1.documentFirstHeading {
+    font-weight:normal;
+    letter-spacing:0;
+    float: left;
+    margin-right: 0.8em;
+}
+form.searchPage h1.documentFirstHeading .highlightedSearchTerm {
+    background: transparent !important;
+}
+#search-results-bar > * {
+    float: left;
+}
+#searchResultsSort{
+    float:right;
+}
+#search-results-bar {
+    position: relative;
+    z-index: 1;
+    float: left;
+    width: 100%;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    padding: 1em 0;
+}
+#search-results-bar dl.actionMenu {
+    margin-bottom: 0;
+}
+#search-results-bar dd.actionMenuContent {
+    margin-left: 0;
+    padding-left: 0;
+}
+#search-results-bar dt.actionMenuHeader a {
+    border-bottom: none;
+}
+#search-results-bar dt.actionMenuHeader a::after {
+    content: " ▼";
+}
+#search-results {
+    padding: 1em;
+}
+.searchResults {
+    margin-top: 0;
+}
+#ajax-search-res {
+    display: none;
 }
 
 /* @end */
@@ -1293,6 +1521,27 @@ fieldset,
     width:auto;
 }
 
+/* Emulates the styling from the h1 tag */
+#content .field input[type="text"][name$=".title"],
+#archetypes-fieldname-title input {
+    font-family: "Helvetica Neue", Arial, FreeSans, sans-serif;
+    line-height: 125%;
+    color: Black;
+    letter-spacing: -0.05em;
+    margin: inherit -0.05em;
+    font-size: 2em; /* 26px equiv */
+    font-weight: bold;
+}
+
+/* Emulates styling from the description's view */
+#content .field textarea[name$=".description"],
+#archetypes-fieldname-description textarea#description {
+    font-family: Arial,FreeSans,sans-serif;
+    color:#666666;
+    font-size:1.25em;
+    font-weight: bold;
+}
+
 
 div.formControls {
     margin: 1em;
@@ -1358,6 +1607,14 @@ dl.enableFormTabbing dd {
 .field input[type="text"][size] {
    width: auto;
 }
+.field input[type="text"][name$=".title"],
+input#title {
+    width: 100%;
+}
+.field.error input[type="text"][name$=".title"],
+.error input#title {
+    width: 99%;
+}
 
 .fieldRequired {
     background: url(required.png) center left no-repeat;
@@ -1376,6 +1633,8 @@ dl.enableFormTabbing dd {
 .formHelp {
     color: #555;
     margin: 0 0 0.2em 0;
+    display: block;
+    font-weight: normal;
 }
 div.field.error {
     background-color: #fdc;
@@ -1403,6 +1662,16 @@ input.inputLabelActive {
 textarea#form\.description {
     height: 6em;
     width: 99%;
+}
+table.listing tbody tr.odd.selected td,
+table.listing tbody tr.odd.dragging td,
+tr.dragging,
+tr.selected {
+    background-color: #ffa;
+}
+table.listing tbody tr.odd.error td,
+tr.error {
+    background-color: #fdc;
 }
 .multi-widget-field {
     padding-left: 0.5em;
@@ -1478,6 +1747,14 @@ dl.toc dd ol {
 /* @end */
 
 /* @group Footer */
+
+#portal-footer {
+    font-size: 75%;
+    background: #ddd;
+    padding: 1em;
+    margin: 1em 0;
+    line-height: 2em;
+}
 
 #portal-colophon {
     font-size: 70%;
@@ -1589,6 +1866,12 @@ dl.toc dd ol {
     margin: -0.1em 0 0 -0.1em;
     width: 1px;
 }
+/* ensures hidden elements don't take up space */
+/* .ie6 is set on <html> by Modernizr library */
+.ie6 .hiddenStructure,
+.ie7 .hiddenStructure {
+    position: absolute;
+}
 
 #content .visualNoMarker {
     list-style:none;
@@ -1691,6 +1974,9 @@ div.overlay label {
 div.overlay a:hover {
     color: #75ad0a;
 }
+div.overlay a:hover label{
+    cursor: pointer;
+}
 div.overlay a.selected {
     color: #000000;
 }
@@ -1710,37 +1996,37 @@ div.overlay .formControls a {
 
 /* @group Content History */
 
-#content-history #history dd {
+#history dd {
 }
 
-#content-history div.historyRecord {
+div.historyRecord {
     margin-bottom: 1em;
 }
 
 
-#content-history div.historyTools ul {
+div.historyTools ul {
     float: right;
-    margin: 0.5em 1em;
+    margin: 2px 1em;
 }
 
-#content-history div.historyTools ul li {
+div.historyTools ul li {
     display: inline;
     padding: 0 0.015em;
 }
 
-#content-history div.historyTools ul li a{
+div.historyTools ul li a{
     border-bottom: none;
 }
 
-#content-history div.historyTools form {
+div.historyTools form {
     display: inline;
 }
 
-#content-history .historyAction {
+.historyAction {
 
 }
 
-#content-history .historyByLine {
+.historyByLine {
     background: #ddd;
     padding: 0.5em;
     border-top-right-radius: 0.5em;
@@ -1751,31 +2037,32 @@ div.overlay .formControls a {
     -moz-border-radius-topright: 0.5em;
 }
 
-#content-history div.historyLinks {
+div.historyLinks {
     float: right;
     clear: right;
     margin: 0.5em 1em 0 0;
 }
 
 
-#content-history div.historyComment {
+div.historyComment {
     padding: 0.5em 1em;
     border: 1px solid #ddd;
 }
 
-#content-history div.historyComment p {
+div.historyComment p {
     margin: 0;
     padding-top: 1px;
 }
 
-#content-history a.historyComparePrevious {
+a.historyComparePrevious {
     border-top: 1px dotted #ccc;
     display: block;
-    margin-top: 3em;
+    margin-top: 1.5em;
+    margin-bottom: -0.5em;
     text-align: center;
 }
 
-#content-history a.historyComparePrevious span {
+a.historyComparePrevious span {
     background-color: white;
     position: relative;
     top: -0.75em;
@@ -1826,6 +2113,9 @@ div.overlay .formControls a {
 .icons-on .contenttype-plone-site {
     background: no-repeat transparent 0px -1508px url(contenttypes-sprite.png);
 }
+.icons-on .contenttype-collection {
+    background: no-repeat transparent 0px -1724px url(contenttypes-sprite.png);
+}
 .icons-on .contenttype-topic {
     background: no-repeat transparent 0px -1724px url(contenttypes-sprite.png);
 }
@@ -1844,6 +2134,7 @@ div.overlay .formControls a {
 .icons-on .contenttype-link,
 .icons-on .contenttype-news-item,
 .icons-on .contenttype-plone-site,
+.icons-on .contenttype-collection,
 .icons-on .contenttype-topic,
 .icons-on #plone-contentmenu-factories .contenttype-file,
 .icons-on #plone-contentmenu-factories .contenttype-image {
@@ -1863,6 +2154,11 @@ div.overlay .formControls a {
     height: 14em;
     width: 100%;
 }
+/* IE7: fixes super-wide div for JavaScript Tag selector */
+/* .ie7 is set on <html> by Modernizr library */
+.ie7 div.optionsBox {
+    width: 50%;
+}
 .optionsBox LABEL {
     padding: 2px 0 0 0;
     display: block;
@@ -1872,6 +2168,11 @@ div.overlay .formControls a {
 .optionsBox input{
     vertical-align: middle;
     margin: 1px 4px 4px 6px;
+}
+/* IE7: fixes super-wide div for JavaScript Tag selector */
+/* .ie7 is set on <html> by Modernizr library */
+.ie7 .optionsBox input {
+    margin: 0px;
 }
 .optionsBox LABEL.checked {
     background-color: #EEEEEE;

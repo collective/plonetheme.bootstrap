@@ -25,7 +25,9 @@ setup(name='plonetheme.bootstrap',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'z3c.jbot'
+          'z3c.jbot',
+          'plone.browserlayer',
+          'plone.app.jquery >1.7,<1.8',
           # -*- Extra requirements: -*-
       ],
       entry_points="""

@@ -1,29 +1,66 @@
-<tal:define i18n:domain="plone">
+<div id="portal-personaltools-wrapper"
+     class="dropdown pull-right"
+     i18n:domain="plone">
 
-  <ul class="nav secondary-nav" id="portal-personaltools"
-      tal:condition="python:view.user_actions and not view.anonymous">
-    <tal:block condition="not: view/anonymous">
-      <li class="dropdown" data-dropdown="dropdown">
-        <a id="user-name" class="dropdown-toggle"
-          href="#"
-          tal:attributes="href view/homelink_url"
-          tal:content="view/user_name">
-          John
-        </a>
-      
-        <ul class="dropdown-menu">
-          <li tal:repeat="action view/user_actions"
-              tal:attributes="id string:personaltools-${action/id}">
+<h5 class="hiddenStructure" i18n:translate="heading_personal_tools">Personal tools</h5>
+
+<tal:logged
+    tal:condition="python:view.user_actions and not view.anonymous">
+
+    <a id="user-name"
+       class="dropdown-toggle"
+       data-toggle="dropdown"
+       tal:attributes="href view/homelink_url"
+       tal:content="view/user_name">
+        John
+    </a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <li tal:repeat="action view/user_actions"
+            tal:attributes="id string:personaltools-${action/id}">
             <a href=""
-               tal:attributes="href action/url"
+               tal:attributes="href action/url;
+                               target action/link_target|nothing"
                tal:content="action/title"
                i18n:translate="">
                 action title
             </a>
-          </li>
-        </ul>
-      </li>
-    </tal:block>
-  </ul>
-
-</tal:define>
+        </li>
+    </ul>
+</tal:logged>
+<tal:anon
+  tal:condition="python:view.user_actions and view.anonymous"
+  tal:define="actions view/user_actions;
+              action python:actions[0];
+              other_actions python:actions[1:]">
+      <a id="user-name"
+          class="dropdown-toggle"
+          data-target="#"
+          data-toggle="dropdown"
+          tal:attributes="href action/url;
+                          id string:personaltools-${action/id};
+                          target action/link_target|nothing;
+                          class python:other_actions and 'dropdown-toggle' or None;
+                          data-toggle python:other_actions and 'dropdown' or None"
+          tal:content="action/title"
+          i18n:translate="">
+              action title
+      </a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel"
+          tal:condition="other_actions"
+          id="portal-personaltools"
+          >
+        <li id="anon-personalbar">
+          <tal:actions repeat="action other_actions">
+              <a href=""
+                 tal:attributes="href action/url;
+                                 id string:personaltools-${action/id};
+                                 target action/link_target|nothing;"
+                 tal:content="action/title"
+                 i18n:translate="">
+                  action title
+              </a>
+          </tal:actions>
+        </li>
+      </ul>
+</tal:anon>
+</div>

@@ -1,0 +1,4 @@
+<layers>
+    <layer name="plonetheme.sunburst"
+           interface="plonetheme.sunburst.browser.interfaces.IThemeSpecific" />
+</layers>

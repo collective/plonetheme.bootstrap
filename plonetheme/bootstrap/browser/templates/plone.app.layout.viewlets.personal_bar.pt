@@ -8,11 +8,14 @@
     tal:condition="python:view.user_actions and not view.anonymous">
 
     <a id="user-name"
-       class="dropdown-toggle"
+       class="btn btn-info dropdown-toggle"
        data-toggle="dropdown"
-       tal:attributes="href view/homelink_url"
-       tal:content="view/user_name">
+       tal:attributes="href view/homelink_url">
+       <span
+       tal:replace="view/user_name">
         John
+      </span>
+      <span class="caret"></span>
     </a>
     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
         <li tal:repeat="action view/user_actions"

@@ -1,4 +1,4 @@
-<div tal:condition="view/available" class="row">
+<div tal:condition="view/available" class="row-fluid">
     <a class="managePortletsFallback"
         tal:attributes="href string:${view/object_url}/@@manage-portlets"
         i18n:domain="plone"

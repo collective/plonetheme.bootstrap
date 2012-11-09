@@ -86,6 +86,7 @@
                             tal:attributes="class python:show_border and 'documentEditable' or ''">
 
                             <div id="editing-bar"
+                                class="row-fluid"
                                 tal:condition="show_border"
                                 tal:content="structure provider:plone.contentviews" />
 

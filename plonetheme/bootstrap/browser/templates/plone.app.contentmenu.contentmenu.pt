@@ -1,0 +1,89 @@
+<ul id="contentActionMenus"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    tal:define="menu view/menu"
+    tal:condition="view/available"
+    i18n:domain="plone">
+
+    <li tal:repeat="menuItem menu">
+
+        <dl class="actionMenu deactivated"
+            tal:attributes="id menuItem/extra/id"
+            tal:define="submenu menuItem/submenu">
+          <dt tal:define="state_class menuItem/extra/class | nothing;
+                          state_class python:state_class and state_class or ''"
+              tal:attributes="class string:actionMenuHeader label-${state_class}">
+            <a href="#"
+               tal:omit-tag="not:menuItem/action"
+               tal:attributes="href menuItem/action;
+                               title menuItem/description"
+               i18n:attributes="title;">
+               <span tal:omit-tag="menuItem/action"
+                     class="noMenuAction">
+                  <span tal:content="menuItem/title"
+                        i18n:translate="">
+                      Title
+                  </span>
+                  <span tal:condition="menuItem/extra/stateTitle | nothing"
+                        tal:attributes="class menuItem/extra/class | nothing"
+                        tal:content="menuItem/extra/stateTitle"
+                        i18n:translate="">
+                      State title
+                  </span>
+                  <span class="arrowDownAlternative"
+                      tal:condition="not:menuItem/extra/hideChildren | not:submenu | nothing">&#9660;</span>
+               </span>
+            </a>
+          </dt>
+          <dd class="actionMenuContent"
+              tal:condition="not:menuItem/extra/hideChildren | not:submenu | nothing">
+            <ul>
+                <tal:block repeat="subMenuItem submenu">
+                  <li tal:attributes="class subMenuItem/extra/separator">
+                    <a href="#"
+                       tal:condition="subMenuItem/action"
+                       tal:attributes="href subMenuItem/action;
+                                       title subMenuItem/description;
+                                       id subMenuItem/extra/id | nothing;
+                                       class subMenuItem/extra/class | nothing"
+                       i18n:attributes="title">
+                        <img width="16"
+                             height="16"
+                             alt=""
+                             tal:condition="subMenuItem/icon"
+                             tal:attributes="src subMenuItem/icon;
+                                             title subMenuItem/description;
+                                             width subMenuItem/width|string:16;
+                                             height subMenuItem/height|string:16;"
+                             i18n:attributes="alt;"/>
+                        <span tal:content="structure subMenuItem/title"
+                              i18n:translate=""
+                              class="subMenuTitle">
+                            Title
+                        </span>
+                    </a>
+                    <div tal:condition="not:subMenuItem/action"
+                         tal:attributes="id subMenuItem/extra/id | nothing;
+                                         class subMenuItem/extra/class | nothing">
+                        <img width="16"
+                             height="16"
+                             alt=""
+                             tal:condition="subMenuItem/icon"
+                             tal:attributes="src subMenuItem/icon;
+                                             title subMenuItem/description"
+                             i18n:attributes="alt;"/>
+                        <span tal:content="structure subMenuItem/title"
+                              i18n:translate=""
+                              class="subMenuTitle">
+                            Title
+                        </span>
+                    </div>
+                  </li>
+                </tal:block>
+            </ul>
+          </dd>
+        </dl>
+
+    </li>
+
+</ul>

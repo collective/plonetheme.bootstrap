@@ -85,7 +85,7 @@
                             tal:define="show_border context/@@plone/showEditableBorder; show_border python:show_border and not ajax_load"
                             tal:attributes="class python:show_border and 'documentEditable' or ''">
 
-                            <div id="edit-bar"
+                            <div id="editing-bar"
                                 tal:condition="show_border"
                                 tal:content="structure provider:plone.contentviews" />
 

@@ -1,5 +1,5 @@
 <div i18n:domain="plone"
-     class="contentActions"
+     class="editContentActions"
      tal:define="ploneview context/@@plone"
      tal:condition="ploneview/showEditableBorder">
 
@@ -9,7 +9,7 @@
             tal:condition="content_actions | wf_state"
             i18n:translate="heading_actions">Actions</h5>
 
-        <ul tal:condition="content_actions" class="actionItems">
+        <ul tal:condition="content_actions" class="editActionItems">
             <li tal:repeat="action content_actions"
                 tal:attributes="id string:contentaction-${action/id};">
 

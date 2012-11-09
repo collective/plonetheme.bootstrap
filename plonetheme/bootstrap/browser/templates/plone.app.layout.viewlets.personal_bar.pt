@@ -36,13 +36,13 @@
               action python:actions[0];
               other_actions python:actions[1:]">
       <a id="user-name"
-          class="dropdown-toggle"
+          class="btn btn-info dropdown-toggle"
           data-target="#"
           data-toggle="dropdown"
           tal:attributes="href action/url;
                           id string:personaltools-${action/id};
                           target action/link_target|nothing;
-                          class python:other_actions and 'dropdown-toggle' or None;
+                          class python:other_actions and 'btn btn-info dropdown-toggle' or 'btn btn-info';
                           data-toggle python:other_actions and 'dropdown' or None"
           tal:content="action/title"
           i18n:translate="">

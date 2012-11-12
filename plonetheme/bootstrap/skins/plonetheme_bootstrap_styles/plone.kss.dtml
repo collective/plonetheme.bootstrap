@@ -113,6 +113,7 @@ Content Menu Sections: Cut and Paste
 */
  /* Needed allowbubbling, because the menu-item is inside a span an the event selector is on the enclosing a-tag */
 
+/*
 a.actionicon-object_buttons-cut:click {
     evt-click-preventdefault: True;
     evt-click-allowbubbling: True;
@@ -124,7 +125,7 @@ a.actionicon-object_buttons-copy:click {
     evt-click-allowbubbling: True;
     action-server: copyObject;
 }
-
+*/
 /*
 Content Menu Sections: Workflow State
 */

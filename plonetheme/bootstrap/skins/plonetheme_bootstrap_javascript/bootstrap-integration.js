@@ -5,11 +5,20 @@
  *
  */
 
+function fixArchetypesForms(){
+    /* Remove class=label from datetime widgets */
+    $('.ArchetypesCalendarWidget .label').removeClass('label');
+    /* Move archetypes BooleanFields' checkbox, inside the label */
+    $('.ArchetypesBooleanWidget label').each(function(){
+        var checkbox = $(this).parent().find('input[type=checkbox]');
+        $(this).prepend(checkbox);
+    });
+}
+
 (function($){
 $(document).ready(function(){
 
     /* Automatically generated portal status messages */
-
     $('dl.portalMessage #kssPortalMessage').each(function(){
         var message = $(this);
         message.removeClass('portalMessage');
@@ -39,7 +48,6 @@ $(document).ready(function(){
     $('input[type="submit"], input[type="button"]').addClass('btn');
 
     /* Edit form tabs */
-
     $('form ul.formTabs').each(function(){
         var ul = $(this);
         ul.addClass('nav');
@@ -51,6 +59,8 @@ $(document).ready(function(){
         ul.find('li').click(function(){
             $(this).parent().find('li').removeClass('active');
             $(this).addClass('active');
+            /* Fix forms after showing */
+            fixArchetypesForms();
         });
         ul.find('li a span').each(function(){
             var span = $(this);
@@ -64,6 +74,8 @@ $(document).ready(function(){
     /* Plone's default class for tables */
     $('table.listing').addClass('zebra-striped');
 
+    /* Fix archetypes forms if there's any */
+    fixArchetypesForms();
 
     /*
     $('ul#navigation li[data-dropdown="dropdown"]').hover(function(){

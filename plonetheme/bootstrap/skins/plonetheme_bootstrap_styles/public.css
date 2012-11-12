@@ -839,8 +839,9 @@ dl.error dd {
     border: 0.3em solid #ddd;
 }
 #edit-bar {
-    background-color: #75ad0a;
+    /*background-color: #75ad0a;
     border: 0.25em solid #75ad0a;
+    */
     font-size: 90%;
     min-height: 2em;
     margin-bottom: 1em;
@@ -855,19 +856,22 @@ dl.error dd {
     margin-bottom: 0;
 }
 
+/*
 #content-views {
     float: left;
     background-color: #75ad0a;
 }
+*/
 /* fix shift on content views list under ie6 */
 /* .ie6 is set on <html> by Modernizr library */
 .ie6 ul#content-views{
     margin: -2px -3px 0px -3px;
 }
+/*
 #content-views a {
     color: White;
 }
-
+*/
 /* Shared CSS between the two tab types */
 #edit-bar,
 #content ul.formTabs,
@@ -980,28 +984,36 @@ div.field span.required:after {
 /* @end */
 
 /* @group Content pulldowns */
+#contentActionMenus > li {
+    margin-left: 2px;
+}
 
-#contentActionMenus dl.actionMenu a,
-#contentActionMenus dl.actionMenu.activated dd {
+#contentActionMenus li.actionMenu a,
+#contentActionMenus li.actionMenu.activated dd {
     background-color: #75ad0a;
     color: White;
     z-index: 5;
 }
-#contentActionMenus dl.actionMenu.activated dd {
+#contentActionMenus li.actionMenu.activated dd {
     border-bottom: 0.5em solid #75ad0a;
         right: -3px;
 }
-#contentActionMenus dl.actionMenu.activated dd a:hover,
-#contentActionMenus dl.actionMenu.activated dd .actionMenuSelected {
+#contentActionMenus li.actionMenu.activated dd a:hover,
+#contentActionMenus li.actionMenu.activated dd .actionMenuSelected {
     background-color: White !important;
     color: #666;
 }
-#contentActionMenus dl.actionMenu {
+#contentActionMenus li.actionMenu {
     line-height: 2em;
 }
 
 #folderHeader, #contextHeader {
         border-bottom: 2px solid white;
+}
+
+.dropdown-menu .divider {
+    margin: 0 !important;
+    border-bottom: 0;
 }
 
 #contextHeader { margin-top: 5px; }
@@ -1046,6 +1058,10 @@ dl.actionMenu dt {
 dl.actionMenu ul {
     margin: 0;
 }
+.actionMenuContent li {
+    display: block;
+}
+
 span.arrowDownAlternative {
     font-size: 80%;
 }
@@ -1522,24 +1538,34 @@ fieldset,
 /* Emulates the styling from the h1 tag */
 #content .field input[type="text"][name$=".title"],
 #archetypes-fieldname-title input {
-    font-family: "Helvetica Neue", Arial, FreeSans, sans-serif;
-    line-height: 125%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 40px;
+    height: 40px;
     color: Black;
     letter-spacing: -0.05em;
     margin: inherit -0.05em;
-    font-size: 2em; /* 26px equiv */
+    font-size: 38.5px; /* 26px equiv */
     font-weight: bold;
 }
 
 /* Emulates styling from the description's view */
 #content .field textarea[name$=".description"],
 #archetypes-fieldname-description textarea#description {
-    font-family: Arial,FreeSans,sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color:#666666;
     font-size:1.25em;
     font-weight: bold;
 }
 
+
+form.enableFormTabbing li {
+    margin-bottom: 0 !important;
+    list-style: none !important;
+}
+
+form.enableFormTabbing ul.nav {
+    margin-left: 0 !important;
+}
 
 div.formControls {
     margin: 1em;
@@ -2094,8 +2120,9 @@ a.historyComparePrevious span {
 */
 
 .icons-on .contenttype-document {
-    background: no-repeat transparent 0px 4px url(contenttypes-sprite.png);
+    background: no-repeat transparent 0px 4px url(contenttypes-sprite.png) ;
 }
+
 .icons-on .contenttype-event {
     background: no-repeat transparent 0px -212px url(contenttypes-sprite.png);
 }
@@ -2119,12 +2146,13 @@ a.historyComparePrevious span {
 }
 
 /* These should only appear in the add menu */
-.icons-on #plone-contentmenu-factories .contenttype-file {
+.icons-on .contenttype-file {
     background: no-repeat transparent 0px -428px url(contenttypes-sprite.png);
 }
-.icons-on #plone-contentmenu-factories .contenttype-image {
+.icons-on .contenttype-image {
     background: no-repeat transparent 0px -860px url(contenttypes-sprite.png);
 }
+
 
 .icons-on .contenttype-document,
 .icons-on .contenttype-event,
@@ -2134,13 +2162,29 @@ a.historyComparePrevious span {
 .icons-on .contenttype-plone-site,
 .icons-on .contenttype-collection,
 .icons-on .contenttype-topic,
-.icons-on #plone-contentmenu-factories .contenttype-file,
-.icons-on #plone-contentmenu-factories .contenttype-image {
+.icons-on .contenttype-file,
+.icons-on .contenttype-image {
     line-height: 2em;
-    display: inline-block;
-    *display: block;
+    /*display: inline-block;
+    *display: block;*/
     padding-left: 20px !important;
 }
+
+.icons-on #plone-contentmenu-factories .contenttype-document,
+.icons-on #plone-contentmenu-factories .contenttype-event,
+.icons-on #plone-contentmenu-factories .contenttype-folder,
+.icons-on #plone-contentmenu-factories .contenttype-link,
+.icons-on #plone-contentmenu-factories .contenttype-news-item,
+.icons-on #plone-contentmenu-factories .contenttype-plone-site,
+.icons-on #plone-contentmenu-factories .contenttype-collection,
+.icons-on #plone-contentmenu-factories .contenttype-topic,
+.icons-on #plone-contentmenu-factories .contenttype-file,
+.icons-on #plone-contentmenu-factories .contenttype-image {
+    margin:3px 20px;
+    padding:0px 20px !important;
+}
+
+
 
 /* @end */
 

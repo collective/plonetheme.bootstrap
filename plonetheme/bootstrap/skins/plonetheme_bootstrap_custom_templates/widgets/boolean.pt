@@ -28,7 +28,7 @@
 
     <metal:define define-macro="edit">
       <metal:use use-macro="field_macro | context/widgets/field/macros/edit">
-      <metal:fill fill-slot="widget_body_label_prefix"
+      <metal:fill fill-slot="widget_body_label_inside"
                   tal:define="value python:test(not not value and value not in ('0', 'False'), 1, 0)">
 
         <input class="noborder"

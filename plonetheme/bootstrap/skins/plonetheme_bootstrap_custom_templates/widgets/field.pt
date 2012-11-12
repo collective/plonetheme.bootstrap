@@ -92,6 +92,9 @@
           <tal:ifLabel tal:condition="not: widget/render_own_label | nothing">
             <label class="formQuestion"
                    tal:attributes="for python:fieldName">
+
+                <div metal:define-slot="widget_body_label_inside"></div>
+
                 <span tal:replace="python:widget.Label(here)"
                       i18n:translate="" />
                 <span class="required"

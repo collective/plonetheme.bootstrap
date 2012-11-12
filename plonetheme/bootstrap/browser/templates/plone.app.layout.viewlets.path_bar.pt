@@ -6,8 +6,10 @@
 
   <li id="breadcrumbs-home">
     <a href="#" tal:attributes="href view/navigation_root_url">Home</a>
-      <tal:ltr condition="not: is_rtl">/</tal:ltr>
-      <tal:rtl condition="is_rtl">\</tal:rtl>
+      <span class="divider" tal:condition="breadcrumbs">
+          <tal:ltr condition="not: is_rtl">/</tal:ltr>
+          <tal:rtl condition="is_rtl">\</tal:rtl>
+      </span>
   </li>
 
   <tal:crumb tal:repeat="crumb breadcrumbs">

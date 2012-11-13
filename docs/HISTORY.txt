@@ -1,6 +1,14 @@
 Changelog
 =========
 
+1.0b1 (2012/11/13)
+----------------------
+
+- Reimplementation based on Twitter Bootstrap 2.2.1 and plonetheme.sunburst
+  [erral]
+
+
+
 1.0a1dev (unreleased)
 ---------------------
 

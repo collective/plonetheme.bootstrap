@@ -6,7 +6,7 @@ version = '1.0a1'
 setup(name='plonetheme.bootstrap',
       version=version,
       description="bootstrap css integration",
-      long_description=open("README.txt").read() + "\n" +
+      long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?%3Aaction=list_classifiers
@@ -14,10 +14,10 @@ setup(name='plonetheme.bootstrap',
         "Framework :: Plone",
         "Programming Language :: Python",
         ],
-      keywords='',
-      author='',
-      author_email='',
-      url='http://svn.plone.org/svn/collective/',
+      keywords='plone theme twitterbootstrap',
+      author='Nathan van Gheem, Mikel Larreategi',
+      author_email='mlarreategi@codesyntax.com',
+      url='https://github.com/collective/plonetheme.bootstrap',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['plonetheme'],

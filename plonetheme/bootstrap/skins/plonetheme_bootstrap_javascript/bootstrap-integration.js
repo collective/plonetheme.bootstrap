@@ -7,12 +7,21 @@
 
 function fixArchetypesForms(){
     /* Remove class=label from datetime widgets */
-    $('.ArchetypesCalendarWidget .label').removeClass('label');
+    $('.ArchetypesCalendarWidget .label').each(function(){
+        var cont = $(this).contents().filter(function(){
+            return this.nodeType == 3 && $(this).text().trim();
+        }).wrap('<label></label>');
+        $(this).removeClass('label');
+    });
+
     /* Move archetypes BooleanFields' checkbox, inside the label */
     $('.ArchetypesBooleanWidget label').each(function(){
         var checkbox = $(this).parent().find('input[type=checkbox]');
         $(this).prepend(checkbox);
     });
+
+    /* Help text in Archetypes forms */
+    $('.formHelp').addClass('help-block').removeClass('formHelp');
 }
 
 (function($){
@@ -68,8 +77,7 @@ $(document).ready(function(){
         });
     });
 
-    /* Help text in Archetypes forms */
-    $('.formHelp').addClass('help-block').removeClass('formHelp');
+
 
     /* Plone's default class for tables */
     $('table.listing').addClass('zebra-striped');

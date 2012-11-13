@@ -2,7 +2,7 @@ Introduction
 ============
 
 plonetheme.bootstrap integrates the bootstrap css/js framework
-into plone. You can checkout the framework at `http://twitter.github.com/bootstrap/`
+into plone. You can checkout the framework at http://twitter.github.com/bootstrap
 
 It overrides some templates and uses javascript to transform
 some markup in order for it to work correctly.
@@ -55,10 +55,17 @@ If you have any problem using this product or find any bug, please report it
 using the `GitHub issue tracker`_.
 
 
-.. _`Licencse terms`: https://github.com/twitter/bootstrap/blob/master/LICENSE
+Authors
+=========
+
+- Nathan van Gheem, initial author
+- Mikel Larreategi, update to Twitter Bootstrap 2.2.1, current mantainer
+
+
+.. _`License terms`: https://github.com/twitter/bootstrap/blob/master/LICENSE
 .. _`plonetheme.sunburst`: http://pypi.python.org/pypi/plonetheme.sunburst
 .. _`templer skeleton generator`: http://templer-manual.readthedocs.org/en/latest/
 .. _`CodeSkel`: http://pypi.python.org/pypi/CodeSkel
 .. _`ZopeSkel 2`: http://pypi.python.org/pypi/ZopeSkel/2.21.2
-.. _`GitHub issue tracker`_: https://github.com/collective/plonetheme.bootstrap/issues
+.. _`GitHub issue tracker`: https://github.com/collective/plonetheme.bootstrap/issues
 

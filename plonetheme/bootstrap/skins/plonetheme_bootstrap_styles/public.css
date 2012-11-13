@@ -389,14 +389,14 @@ dl.portlet ul.navTree .navTreeCurrentItem {
 /* @end */
 
 /* @group Content Area */
-
+/*
 #content {
     line-height: 1.5em;
     clear: both;
     font-size: 90%;
     margin: 1em 0.25em 2em 0.25em;
 }
-
+*/
 /* Special case of #content - TinyMCE */
 body#content {
     margin: 1em;

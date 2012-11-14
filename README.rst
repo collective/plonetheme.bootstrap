@@ -46,10 +46,7 @@ This product is intended to be used in two scenarios:
 
 Some designers prefer to work following the old best-practices instead of using
 the Diazo-way-of-theming, this product is for them. You can create a theme package
-(check `templer skeleton generator`_), and base your them on this one. At our
-company, we have a templer-like tool called `CodeSkel`_ (it's based in the old
-`ZopeSkel 2`_) that provides some of the basic templates we daily use in our
-projects, and we have one template that uses this Bootstrap-based theme as a base.
+(check `templer skeleton generator`_), and base your them on this one.
 
 If you have any problem using this product or find any bug, please report it
 using the `GitHub issue tracker`_.
@@ -72,7 +69,5 @@ Authors
 .. _`License terms`: https://github.com/twitter/bootstrap/blob/master/LICENSE
 .. _`plonetheme.sunburst`: http://pypi.python.org/pypi/plonetheme.sunburst
 .. _`templer skeleton generator`: http://templer-manual.readthedocs.org/en/latest/
-.. _`CodeSkel`: http://pypi.python.org/pypi/CodeSkel
-.. _`ZopeSkel 2`: http://pypi.python.org/pypi/ZopeSkel/2.21.2
 .. _`GitHub issue tracker`: https://github.com/collective/plonetheme.bootstrap/issues
 

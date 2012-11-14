@@ -22,4 +22,14 @@
 
   </genericsetup:importStep>
 
+  <genericsetup:upgradeStep
+      title="Upgrade plonetheme.bootstrap to 1001 profile version"
+      description="Upgrade step from 1.0a version to 1.0b"
+      source="1000"
+      destination="1001"
+      handler=".upgrades.upgrade_to_1001"
+      profile="plonetheme.bootstrap:default" />
+
+
+
 </configure>

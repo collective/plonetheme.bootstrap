@@ -54,6 +54,13 @@ projects, and we have one template that uses this Bootstrap-based theme as a bas
 If you have any problem using this product or find any bug, please report it
 using the `GitHub issue tracker`_.
 
+Upgrade
+=========
+
+To upgrade from version 1.0a1, just go to the add-on controlpanel and click
+on upgrade. Old skin paths and javascripts will be disabled and new ones imported
+
+
 
 Authors
 =========

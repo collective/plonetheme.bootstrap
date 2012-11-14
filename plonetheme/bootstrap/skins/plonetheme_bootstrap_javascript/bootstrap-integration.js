@@ -20,6 +20,19 @@ function fixArchetypesForms(){
         $(this).prepend(checkbox);
     });
 
+    /* Move add-on control-panel inputs inside labels */
+    $('input[type=checkbox]').each(function(){
+        var label = $(this).parent().find('label');
+        for (var i = label.length - 1; i >= 0; i--) {
+            if ($(label[i]).attr('for') == $(this).attr('id')) {
+                $(label[i]).prepend($(this));
+            }
+        };
+
+    });
+
+    $('form.edit-form .label').removeClass('label');
+
     /* Help text in Archetypes forms */
     $('.formHelp').addClass('help-block').removeClass('formHelp');
 }

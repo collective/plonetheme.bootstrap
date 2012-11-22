@@ -25,8 +25,17 @@ function fixArchetypesForms(){
         var label = $(this).parent().find('label');
         for (var i = label.length - 1; i >= 0; i--) {
             if ($(label[i]).attr('for') == $(this).attr('id')) {
+                if ($(label[i]).hasClass('hiddenStructure')) {
+                    var labeltext = $(label[i]).text();
+                    $(label[i]).text('');
+                    $(label[i]).removeClass('hiddenStructure');
+                    $(label[i]).prepend($("<span />", { "class": 'hiddenStructure',text: labeltext}));
+
+                }
                 $(label[i]).prepend($(this));
+
             }
+
         };
 
     });

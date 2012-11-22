@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.0b2 (unreleased)
+----------------------
+
+- Added i18n:translate in plone.app.layout.viewlet.sections.pt and plone.app.layout.viewlet.search_box.pt
+
+
+
 1.0b1 (unreleased)
 ----------------------
 

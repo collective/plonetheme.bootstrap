@@ -12,11 +12,10 @@
                value=""
                title="Search Site"
                accesskey="4"
-               i18n:attributes="title title_search_site;"
+               i18n:attributes="title title_search_site;placeholder text_search"
                tal:attributes="value request/form/SearchableText|nothing;"
-               placeholder="Search"
                class="searchField inputLabel input-medium" />
 
-        <button class="btn" type="submit">Search</button>
+        <button i18n:translate="label_search" class="btn" type="submit">Search</button>
     </form>
 </tal:define>

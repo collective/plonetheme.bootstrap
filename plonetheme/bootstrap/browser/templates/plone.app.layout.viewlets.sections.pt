@@ -20,7 +20,7 @@
                 <div class="nav-collapse collapse">
                     <ul class="nav" id="navigation">
                         <li id="portaltab-index_html">
-                            <a title="" tal:attributes="href context/@@plone_portal_state/navigation_root_url">Home</a>
+                            <a title="" i18n:translate="Home" tal:attributes="href context/@@plone_portal_state/navigation_root_url">Home</a>
                         </li>
                         <tal:tabs tal:repeat="tab nav">
                             <tal:define tal:define="item tab/item;

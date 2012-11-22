@@ -1,2 +1,4 @@
 plone_skin:string=Bootstrap Theme
 logoName:string=logo.png
+backgroundColor:string=transparent
+linkColor:string=inherit

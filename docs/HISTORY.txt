@@ -4,6 +4,7 @@ Changelog
 1.0b2 (unreleased)
 ----------------------
 
+- add missing properties for TinyMCE css in base_properties.props [petschki]
 - Fixed folder_contents checkbox inputs.
 - Added i18n:translate in plone.app.layout.viewlet.sections.pt and plone.app.layout.viewlet.search_box.pt
 

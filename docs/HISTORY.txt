@@ -5,8 +5,7 @@ Changelog
 ----------------------
 
 - Fixed folder_contents checkbox inputs.
-- Added i18n:translate in plone.app.layout.viewlet.sections.pt and plone.app.layout.viewlet.search_box.pt
-
+- Added i18n:translate in plone.app.layout.viewlet.sections.pt, plone.app.layout.viewlet.search_box.pt and plone.app.layout.viewlets.path_bar.pt
 
 1.0b1 (unreleased)
 ----------------------

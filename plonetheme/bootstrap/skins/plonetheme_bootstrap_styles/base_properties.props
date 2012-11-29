@@ -12,3 +12,5 @@ globalBorderColor:string=White
 globalBackgroundColor:string=#dddddd
 
 discreetColor:string=#76797c
+
+textTransform:string=none

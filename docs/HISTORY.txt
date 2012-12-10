@@ -3,6 +3,8 @@ Changelog
 
 1.0b2 (unreleased)
 ------------------
+
+- Enable livesearch [erral]
 - Upgrade to Twitter Bootstrap 2.2.2 [erral]
 - Added missing properties for TinyMCE css in base_properties.props [petschki]
 - Fixed folder_contents checkbox inputs.

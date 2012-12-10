@@ -25,19 +25,18 @@ class BootstrapUtils(BrowserView):
 class BootstrapView(BrowserView):
     implements(IBootstrapView)
 
-
     def getViewportValues(self, view=None):
         """ Determine the value of the viewport meta-tag """
-        return {'width':'device-width',
-                'initialscale':'0.6666',
-                'maximumscale':'1.0',
-                'minimumscale':'0.6666',
+        return {'width': 'device-width',
+                'initialscale': '0.6666',
+                'maximumscale': '1.0',
+                'minimumscale': '0.6666',
                 }
-
 
     def getColumnsClasses(self, view=None):
         """ Determine whether a column should be shown. The left column is
-            called plone.leftcolumn; the right column is called plone.rightcolumn.
+            called plone.leftcolumn; the right column is called
+            plone.rightcolumn.
         """
 
         plone_view = getMultiAdapter(
@@ -45,8 +44,8 @@ class BootstrapView(BrowserView):
         portal_state = getMultiAdapter(
             (self.context, self.request), name=u'plone_portal_state')
 
-        sl = plone_view.have_portlets('plone.leftcolumn', view=view);
-        sr = plone_view.have_portlets('plone.rightcolumn', view=view);
+        sl = plone_view.have_portlets('plone.leftcolumn', view=view)
+        sr = plone_view.have_portlets('plone.rightcolumn', view=view)
 
         isRTL = portal_state.is_rtl()
 
@@ -84,4 +83,3 @@ class BootstrapView(BrowserView):
         #     columns[key] = "cell " + value
 
         return columns
-

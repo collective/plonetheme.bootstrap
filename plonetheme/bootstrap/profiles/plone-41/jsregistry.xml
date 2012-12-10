@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts">
+
+
+ <javascript cacheable="True" compression="none" cookable="True"
+    enabled="True" inline="False" expression="" insert-before="*"
+    id="++resource++plone.app.jquery.js" />
+
+ <javascript cacheable="True" compression="none" cookable="True"
+    enabled="False" inline="False" expression="" insert-before="*"
+    id="jquery.js" />
+
+ <javascript
+    id="bootstrap-integration.js"
+    cacheable="True" compression="safe" cookable="True"
+    enabled="True" expression=""  inline="False"/>
+
+ <javascript
+    id="bootstrap.min.js"
+    cacheable="True" compression="safe" cookable="True"
+    enabled="True" expression=""  inline="False"/>
+
+</object>

@@ -1,9 +1,11 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="plonetheme.bootstrap">
 
   <genericsetup:registerProfile
+      zcml:condition="have plone-42"
       name="default"
       title="Bootstrap Theme"
       directory="profiles/default"
@@ -12,6 +14,7 @@
       />
 
   <genericsetup:importStep
+      zcml:condition="have plone-42"
       name="plonetheme.bootstrap.various"
       title="Bootstrap Theme: miscellaneous import steps"
       description="Various import steps that are not handled by GS import/export handlers."
@@ -23,6 +26,7 @@
   </genericsetup:importStep>
 
   <genericsetup:upgradeStep
+      zcml:condition="have plone-42"
       title="Upgrade plonetheme.bootstrap to 1001 profile version"
       description="Upgrade step from 1.0a version to 1.0b"
       source="1000"
@@ -30,6 +34,15 @@
       handler=".upgrades.upgrade_to_1001"
       profile="plonetheme.bootstrap:default" />
 
+
+  <genericsetup:registerProfile
+      zcml:condition="have plone-41"
+      name="default"
+      title="Bootstrap Theme"
+      directory="profiles/plone-41"
+      description='Extension profile for the "Bootstrap Theme" Plone theme for Plone 4.1.x'
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
 
 
 </configure>

@@ -4,8 +4,8 @@
     <form name="searchform" class="form-search pull-right"
           action="search"
           i18n:domain="plone"
-          tal:attributes="action string:${navigation_root_url}/search;">
-
+          tal:attributes="action string:${navigation_root_url}/@@search;">
+      <div class="LSBox">
         <input name="SearchableText"
                type="text"
                size="18"
@@ -14,8 +14,32 @@
                accesskey="4"
                i18n:attributes="title title_search_site;placeholder text_search"
                tal:attributes="value request/form/SearchableText|nothing;"
+               id="searchGadget"
                class="searchField search-query inputLabel input-medium" />
 
         <button i18n:translate="label_search" class="btn" type="submit">Search</button>
+
+        <div class="searchSection">
+            <label for="searchbox_currentfolder_only"
+                   style="cursor: pointer">
+              <span
+                   i18n:translate="label_searchbox_currentfolder_only"
+                   tal:omit-tag="">
+                only in current section
+              </span>
+              <input id="searchbox_currentfolder_only"
+                     class="noborder"
+                     type="checkbox"
+                     name="path"
+                     tal:attributes="value view/folder_path;
+                                     checked request/form/path|nothing"
+                     />
+
+            </label>
+        </div>
+
+        <div class="LSResult" id="LSResult"><div class="LSShadow" id="LSShadow"></div></div>
+
+      </div>
     </form>
 </tal:define>

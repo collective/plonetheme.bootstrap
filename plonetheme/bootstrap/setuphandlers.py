@@ -1,6 +1,7 @@
 from Products.CMFCore.ActionInformation import Action
 from Products.CMFCore.utils import getToolByName
 
+
 def setupVarious(context):
     """ Only in plonetheme.sunburst profile """
 

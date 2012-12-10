@@ -14,7 +14,7 @@
                accesskey="4"
                i18n:attributes="title title_search_site;placeholder text_search"
                tal:attributes="value request/form/SearchableText|nothing;"
-               class="searchField inputLabel input-medium" />
+               class="searchField search-query inputLabel input-medium" />
 
         <button i18n:translate="label_search" class="btn" type="submit">Search</button>
     </form>

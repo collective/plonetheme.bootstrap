@@ -41,7 +41,7 @@
 
         <meta name="viewport"
               tal:define="viewportvalues bootstrapview/getViewportValues"
-              tal:attributes="content string:width=${viewportvalues/width};;initial-scale=${viewportvalues/initialscale};;maximum-scale=${viewportvalues/maximumscale};;minimum-scale=${viewportvalues/minimumscale}"
+              tal:attributes="content string:width=${viewportvalues/width},initial-scale=${viewportvalues/initialscale},maximum-scale=${viewportvalues/maximumscale},minimum-scale=${viewportvalues/minimumscale}"
                 content="width=device-width, initial-scale=0.6666, maximum-scale=1.0, minimum-scale=0.6666" />
         <meta name="generator" content="Plone - http://plone.org" />
     </tal:notajax>

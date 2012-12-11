@@ -1,8 +1,8 @@
 Introduction
 ============
 
-plonetheme.bootstrap integrates the bootstrap css/js framework
-into plone. You can checkout the framework at http://twitter.github.com/bootstrap
+plonetheme.bootstrap integrates Twitter Bootstrap CSS/JS framework
+into Plone. You can checkout the framework at http://twitter.github.com/bootstrap
 
 It overrides some templates and uses javascript to transform
 some markup in order for it to work correctly.
@@ -13,8 +13,8 @@ Dependencies
 ==============
 
 Latest Twitter Bootstrap requires jQuery 1.7.x, you can install
-it in Plone pinning plone.app.jquery in your buildout to version 1.7.1.1
-as follows. You will also need to pin plone.app.jquerytools to version
+it in Plone pinning plone.app.jquery in your buildout to version 1.7.1.1.
+You will also need to pin plone.app.jquerytools to version
 1.5.1 to guarantee jQuery 1.7.x compatibility::
 
  [versions]
@@ -27,19 +27,20 @@ as follows. You will also need to pin plone.app.jquerytools to version
 Documentation
 ===============
 
-This product is based in Twitter Bootstrap version 2.2.1 and it redistributes it
+This product is based in Twitter Bootstrap version 2.2.2 and it redistributes it
 according to its `License terms`_.
 
 This product adds both the basic CSS file and also the Responsive one to have
-your site mobile-enabled from the start.
+a mobile-enabled site from the start.
 
 The generated markup is based on 'fluid CSS' and it contains a 12 column grid.
 
 The basic HTML markup is a mix of `plonetheme.sunburst`_ and Twitter Bootstrap
-and it uses the same approach of constructing the columns with as Sunburst:
+and it uses the same approach of constructing the columns as Sunburst Theme:
 a simple view that returns the classes needed to have the correct column widths.
 
-If you want to change those widths, just override the view.
+If you want to change those widths, just override the view following the common
+Plone overriding patterns.
 
 This product is intended to be used in two scenarios:
 

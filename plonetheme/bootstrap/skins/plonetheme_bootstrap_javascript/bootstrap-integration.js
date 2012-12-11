@@ -29,7 +29,7 @@ function fixArchetypesForms(){
                     var labeltext = $(label[i]).text();
                     $(label[i]).text('');
                     $(label[i]).removeClass('hiddenStructure');
-                    $(label[i]).prepend($("<span />", { "class": 'hiddenStructure',text: labeltext}));
+                    $(label[i]).prepend($("<span />", { 'class': 'hiddenStructure', 'text': labeltext}));
 
                 }
                 $(label[i]).prepend($(this));
@@ -46,7 +46,6 @@ function fixArchetypesForms(){
     $('.formHelp').addClass('help-block').removeClass('formHelp');
 }
 
-(function($){
 $(document).ready(function(){
 
     /* Automatically generated portal status messages */
@@ -95,7 +94,7 @@ $(document).ready(function(){
         });
         ul.find('li a span').each(function(){
             var span = $(this);
-            var a = span.parent().html(span.html);
+            var a = span.parent().html(span.html());
         });
     });
 
@@ -121,4 +120,3 @@ $(document).ready(function(){
     });
     */
 });
-})(jQuery);

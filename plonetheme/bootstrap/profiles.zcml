@@ -36,13 +36,12 @@
 
 
   <genericsetup:registerProfile
-      zcml:condition="have plone-41"
-      name="default"
+      zcml:condition="not-have plone-42"
+      name="plone-41"
       title="Bootstrap Theme"
       directory="profiles/plone-41"
       description='Extension profile for the "Bootstrap Theme" Plone theme for Plone 4.1.x'
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
-
 
 </configure>

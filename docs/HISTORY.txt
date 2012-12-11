@@ -4,6 +4,7 @@ Changelog
 1.0b2 (unreleased)
 ------------------
 
+- Add uninstall support [erral]
 - Add Plone 4.1.x profile [erral]
 - Enable livesearch [erral]
 - Upgrade to Twitter Bootstrap 2.2.2 [erral]

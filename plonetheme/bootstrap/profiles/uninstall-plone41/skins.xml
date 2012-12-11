@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!-- This file holds the setup configuration for the portal_skins tool -->
+
+<!-- Change the value of these parameters to modify portal_skins behavior:
+     - allow_any: change it to True if you want users to be able to select the
+       skin to use from their personal preferences management page. In the
+       ZMI, this value is known as 'Skin flexibility'.
+     - cookie_persistence: change it to True if you want to make the skin cookie
+       persist indefinitely. In the ZMI, this value is known as 'Skin Cookie
+       persistence'.
+       -->
+<object name="portal_skins" allow_any="False" cookie_persistence="False"
+   default_skin="Sunburst Theme">
+
+ <!-- This list registers the folders that are stored in the skins directory
+      of your product (on the filesystem) as Filesystem Directory Views within
+      the portal_skins tool, so that they become usable as skin layers.
+      -->
+ <object name="plonetheme_bootstrap_images"
+    meta_type="Filesystem Directory View"
+    directory="plonetheme.bootstrap:skins/plonetheme_bootstrap_images"
+    remove="True"
+    />
+ <object name="plonetheme_bootstrap_templates"
+    meta_type="Filesystem Directory View"
+    directory="plonetheme.bootstrap:skins/plonetheme_bootstrap_templates"
+    remove="True"
+    />
+ <object name="plonetheme_bootstrap_styles"
+    meta_type="Filesystem Directory View"
+    directory="plonetheme.bootstrap:skins/plonetheme_bootstrap_styles"
+    remove="True"
+    />
+ <object name="plonetheme_bootstrap_javascript"
+    meta_type="Filesystem Directory View"
+    directory="plonetheme.bootstrap:skins/plonetheme_bootstrap_javascript"
+    remove="True"
+    />
+
+
+ <skin-path name="Bootstrap Theme" based-on="Plone Default" remove="True">
+
+ </skin-path>
+
+</object>

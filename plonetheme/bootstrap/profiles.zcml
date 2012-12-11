@@ -34,6 +34,15 @@
       handler=".upgrades.upgrade_to_1001"
       profile="plonetheme.bootstrap:default" />
 
+  <genericsetup:registerProfile
+      zcml:condition="have plone-42"
+      name="uninstall"
+      title="Bootstrap Theme uninstall"
+      directory="profiles/uninstall"
+      description="Uninstall profile for the Bootstrap Theme Plone theme"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
 
   <genericsetup:registerProfile
       zcml:condition="not-have plone-42"
@@ -43,5 +52,16 @@
       description='Extension profile for the "Bootstrap Theme" Plone theme for Plone 4.1.x'
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+
+  <genericsetup:registerProfile
+      zcml:condition="not-have plone-42"
+      name="uninstall-plone41"
+      title="Bootstrap Theme uninstall"
+      directory="profiles/uninstall-plone41"
+      description="Uninstall profile for the Bootstrap Theme Plone theme"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+
 
 </configure>

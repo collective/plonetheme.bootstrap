@@ -12,13 +12,15 @@ It's not perfect, but it's close.
 Dependencies
 ==============
 
-Latest Twitter Bootstrap javascript required jQuery 1.7.x, you can install
+Latest Twitter Bootstrap requires jQuery 1.7.x, you can install
 it in Plone pinning plone.app.jquery in your buildout to version 1.7.1.1
-as follows::
+as follows. You will also need to pin plone.app.jquerytools to version
+1.5.1 to guarantee jQuery 1.7.x compatibility::
 
  [versions]
  ...
  plone.app.jquery = 1.7.1.1
+ plone.app.jquerytools = 1.5.1
  ...
 
 

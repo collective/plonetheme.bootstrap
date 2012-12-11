@@ -3,7 +3,8 @@ from Persistence import PersistentMapping
 
 import logging
 
-PROFILE_ID='profile-plonetheme.bootstrap:default'
+PROFILE_ID = 'profile-plonetheme.bootstrap:default'
+
 
 def upgrade_to_1001(context, logger=None):
     """Method to convert float Price fields to string.

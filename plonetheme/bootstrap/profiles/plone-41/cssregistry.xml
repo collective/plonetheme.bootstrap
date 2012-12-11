@@ -35,76 +35,72 @@
     cacheable="True" compression="safe" cookable="True"
     enabled="1" expression=""/>
 
-
-
  <!-- Deactivate emtpy CSS stylesheet that come with Sunburst theme -->
  <stylesheet title=""
     id="base.css"
-    media="screen" rel="stylesheet" rendering="import"
+    media="screen" rel="stylesheet" rendering="link"
     cacheable="True" compression="safe" cookable="True"
     enabled="0" expression=""/>
 
  <stylesheet title=""
     id="authoring.css"
-    media="screen" rel="stylesheet" rendering="import"
+    media="screen" rel="stylesheet" rendering="link"
     cacheable="True" compression="safe" cookable="True"
     enabled="0" expression=""/>
 
  <stylesheet title=""
     id="columns.css"
-    media="screen" rel="stylesheet" rendering="import"
+    media="screen" rel="stylesheet" rendering="link"
     cacheable="True" compression="safe" cookable="True"
     enabled="0" expression=""/>
 
  <stylesheet title=""
     id="controlpanel.css"
-    media="screen" rel="stylesheet" rendering="import"
+    media="screen" rel="stylesheet" rendering="link"
     cacheable="True" compression="safe" cookable="True"
     enabled="0" expression=""/>
 
  <stylesheet title=""
     id="deprecated.css"
-    media="screen" rel="stylesheet" rendering="import"
+    media="screen" rel="stylesheet" rendering="link"
     cacheable="True" compression="safe" cookable="True"
     enabled="0" expression=""/>
 
  <stylesheet title=""
     id="forms.css"
-    media="screen" rel="stylesheet" rendering="import"
+    media="screen" rel="stylesheet" rendering="link"
     cacheable="True" compression="safe" cookable="True"
     enabled="0" expression=""/>
 
  <stylesheet title=""
     id="navtree.css"
-    media="screen" rel="stylesheet" rendering="import"
+    media="screen" rel="stylesheet" rendering="link"
     cacheable="True" compression="safe" cookable="True"
     enabled="0" expression=""/>
 
  <stylesheet title=""
     id="invisibles.css"
-    media="screen" rel="stylesheet" rendering="import"
+    media="screen" rel="stylesheet" rendering="link"
     cacheable="True" compression="safe" cookable="True"
     enabled="0" expression=""/>
 
  <stylesheet title=""
     id="kupuplone.css"
-    media="screen" rel="stylesheet" rendering="import"
+    media="screen" rel="stylesheet" rendering="link"
     cacheable="True" compression="safe" cookable="True"
     enabled="0" expression=""/>
 
  <stylesheet title=""
     id="ploneCustom.css"
-    media="screen" rel="stylesheet" rendering="import"
+    media="screen" rel="stylesheet" rendering="link"
     cacheable="True" compression="safe" cookable="True"
     enabled="0" expression=""/>
 
  <stylesheet title=""
     id="mobile.css"
-    media="screen" rel="stylesheet" rendering="import"
+    media="handheld, screen and (max-device-width: 480px)" rel="stylesheet" rendering="link"
     cacheable="True" compression="safe" cookable="True"
     enabled="0" expression=""/>
-
-
 
 
 </object>

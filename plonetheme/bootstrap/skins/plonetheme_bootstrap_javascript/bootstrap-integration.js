@@ -20,6 +20,20 @@ function fixArchetypesForms(){
         $(this).prepend(checkbox);
     });
 
+    $('.ArchetypesSelectionWidget label').each(function(){
+        var radio = $(this).prev();
+	if ($(radio).attr("type")=='radio'){
+	    $(this).prepend(radio);
+	}  
+    });
+
+
+    $('.ArchetypesSelectionWidget .formQuestion.label').each(function(){
+	 $(this).removeClass('label');
+    }
+    );
+    
+
     /* Move add-on control-panel inputs inside labels */
     $('input[type=checkbox]').each(function(){
         var label = $(this).parent().find('label');

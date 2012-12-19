@@ -10,14 +10,6 @@
       directory="templates" />
 
   <browser:page
-      name="bootstrap_utils"
-      for="*"
-      permission="zope.Public"
-      class=".utils.BootstrapUtils"
-      allowed_interface=".interfaces.IBootstrapUtils"
-      />
-
-  <browser:page
       name="bootstrapview"
       for="*"
       class=".utils.BootstrapView"

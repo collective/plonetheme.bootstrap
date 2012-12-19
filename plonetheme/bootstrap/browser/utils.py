@@ -6,22 +6,6 @@ from Products.CMFPlone.browser.navtree import NavtreeQueryBuilder
 from interfaces import IBootstrapUtils, IBootstrapView
 
 
-class BootstrapUtils(BrowserView):
-    implements(IBootstrapUtils)
-
-    def navigation(self):
-        portal_state = getMultiAdapter((self.context, self.request),
-                                        name='plone_portal_state')
-        portal = portal_state.portal()
-        queryBuilder = NavtreeQueryBuilder(portal)
-        query = queryBuilder()
-        query['path']['depth'] = 2
-
-        tree = buildFolderTree(portal, obj=portal, query=query)['children']
-#        for
-        return tree
-
-
 class BootstrapView(BrowserView):
     implements(IBootstrapView)
 

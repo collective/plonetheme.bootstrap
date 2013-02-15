@@ -7,7 +7,8 @@ Changelog
 - Remove label class from ArchetypesSelectionWidget class tag [libargutxi]
 - Prepend ArchetypesSelectionWidget radio input into label [libargutxi]
 - Changed the main menu creation view using the plone standard method [libargutxi]
-- Fix personal_bar template, it was broken if you just had 1 action.
+- Fix personal_bar template, it was broken if you just had 1 action. [erral]
+- Upgrade to Twitter Bootstrap 2.3.0 [erral]
 
 1.0b3 (2012-12-11)
 -------------------

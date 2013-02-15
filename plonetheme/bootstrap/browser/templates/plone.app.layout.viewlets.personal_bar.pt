@@ -33,8 +33,8 @@
 <tal:anon
   tal:condition="python:view.user_actions and view.anonymous"
   tal:define="actions view/user_actions;
-              action python:actions[0];
-              other_actions python:actions[1:]">
+              action python:len(actions)!= 0 and actions[0] or None;
+              other_actions python:len(actions) > 1 and actions[1:] or []">
       <a id="user-name"
           class="btn btn-info dropdown-toggle"
           data-target="#"

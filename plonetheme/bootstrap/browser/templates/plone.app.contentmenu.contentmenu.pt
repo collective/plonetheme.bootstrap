@@ -41,7 +41,7 @@
                 <tal:separator condition="subMenuItem/extra/separator">
                   <li class="divider"></li>
                 </tal:separator>
-                <li tal:attributes="class python:not subMenuItem['action'] and 'active' or None">
+                <li tal:attributes="class python:subMenuItem.get('selected', None) and 'active' or None">
                   <a href="#"
                      tal:condition="subMenuItem/action"
                      tal:attributes="href subMenuItem/action;

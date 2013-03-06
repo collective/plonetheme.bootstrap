@@ -23,14 +23,16 @@
       available keys and default values.
       -->
 
- <stylesheet title=""
-    id="bootstrap.min.css"
+ <stylesheet 
+    id="++resource++collective.js.bootstrap/css/bootstrap.min.css"
+    applyPrefix="True"
     media="" rel="stylesheet" rendering="link"
     cacheable="True" compression="safe" cookable="True"
     enabled="1" expression=""/>
 
  <stylesheet title=""
-    id="bootstrap-responsive.min.css"
+    id="++resource++collective.js.bootstrap/css/bootstrap-responsive.min.css"
+    applyPrefix="True"
     media="" rel="stylesheet" rendering="link"
     cacheable="True" compression="safe" cookable="True"
     enabled="1" expression=""/>
@@ -102,5 +104,7 @@
     cacheable="True" compression="safe" cookable="True"
     enabled="0" expression=""/>
 
+ <stylesheet remove="True" id="bootstrap.min.css"/>
+ <stylesheet remove="True" id="bootstrap-responsive.min.css"/>
 
 </object>

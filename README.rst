@@ -13,16 +13,18 @@ Dependencies
 ==============
 
 Latest Twitter Bootstrap requires jQuery 1.7.x, you can install
-it in Plone pinning plone.app.jquery in your buildout to version 1.7.1.1.
+it in Plone pinning plone.app.jquery in your buildout to version 1.7.2.
 You will also need to pin plone.app.jquerytools to version
 1.5.1 to guarantee jQuery 1.7.x compatibility::
 
  [versions]
  ...
- plone.app.jquery = 1.7.1.1
+ plone.app.jquery = 1.7.2
  plone.app.jquerytools = 1.5.1
  ...
 
+Twitter Boostrap itself is provided as browser resources by the addon
+collective.js.bootstrap.
 
 Documentation
 ===============

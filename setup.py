@@ -28,6 +28,7 @@ setup(name='plonetheme.bootstrap',
           'z3c.jbot',
           'plone.browserlayer',
           'plone.app.jquery >1.7,<1.8',
+          'collective.js.bootstrap',
           # -*- Extra requirements: -*-
       ],
       entry_points="""

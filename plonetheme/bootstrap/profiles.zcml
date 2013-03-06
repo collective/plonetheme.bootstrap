@@ -58,7 +58,7 @@
       title="Upgrade plonetheme.bootstrap to last version"
       description=""
       source="*"
-      destination="1002"
+      destination="1003"
       handler=".upgrades.common"
       profile="plonetheme.bootstrap:default" />
 

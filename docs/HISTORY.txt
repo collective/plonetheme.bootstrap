@@ -11,6 +11,9 @@ Changelog
 - Upgrade to Twitter Bootstrap 2.3.0 [erral]
 - Move glipycons image into a directory called 'img', it's a requirement of the bootstrap css file [erral]
 - Fix selected class in view [erral]
+- Remove useless skin directory. skin directory should only be used to customize
+  already existing resource. Use browser:resource instead [toutpt]
+- Add dependencies over collective.js.bootstrap. More easy to manage upgrade [toutpt]
 
 1.0b3 (2012-12-11)
 -------------------

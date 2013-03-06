@@ -16,19 +16,16 @@
       of your product (on the filesystem) as Filesystem Directory Views within
       the portal_skins tool, so that they become usable as skin layers.
       -->
- <object name="plonetheme_bootstrap_images"
+ <object name="plonetheme_bootstrap_custom"
     meta_type="Filesystem Directory View"
-    directory="plonetheme.bootstrap:skins/plonetheme_bootstrap_images"/>
- <object name="plonetheme_bootstrap_templates"
-    meta_type="Filesystem Directory View"
-    directory="plonetheme.bootstrap:skins/plonetheme_bootstrap_templates"/>
- <object name="plonetheme_bootstrap_styles"
-    meta_type="Filesystem Directory View"
-    directory="plonetheme.bootstrap:skins/plonetheme_bootstrap_styles"/>
- <object name="plonetheme_bootstrap_javascript"
-    meta_type="Filesystem Directory View"
-    directory="plonetheme.bootstrap:skins/plonetheme_bootstrap_javascript"/>
+    directory="plonetheme.bootstrap:skins/plonetheme_bootstrap_custom"/>
 
+ <object remove="True" name="plonetheme_bootstrap_custom_images" />
+ <object remove="True" name="plonetheme_bootstrap_custom_templates" />
+ <object remove="True" name="plonetheme_bootstrap_images" />
+ <object remove="True" name="plonetheme_bootstrap_templates" />
+ <object remove="True" name="plonetheme_bootstrap_styles" />
+ <object remove="True" name="plonetheme_bootstrap_javascript" />
 
  <!-- A skin-path in this file corresponds to a Skin Selection in the
      'Properties' tab of the portal_skins tool, in the ZMI.
@@ -43,15 +40,16 @@
        "all".
        -->
  <skin-path name="Bootstrap Theme" based-on="Plone Default">
-  <layer name="plonetheme_bootstrap_images"
+  <layer name="plonetheme_bootstrap_custom"
      insert-after="custom"/>
-  <layer name="plonetheme_bootstrap_templates"
-     insert-after="plonetheme_bootstrap_images"/>
-  <layer name="plonetheme_bootstrap_styles"
-     insert-after="plonetheme_bootstrap_templates"/>
-  <layer name="plonetheme_bootstrap_javascript"
-     insert-after="plonetheme_bootstrap_styles"/>
-
+ </skin-path>
+ <skin-path name="*">
+   <layer remove="True" name="plonetheme_bootstrap_custom_images"/>
+   <layer remove="True" name="plonetheme_bootstrap_custom_templates"/>
+   <layer remove="True" name="plonetheme_bootstrap_images"/>
+   <layer remove="True" name="plonetheme_bootstrap_templates"/>
+   <layer remove="True" name="plonetheme_bootstrap_styles"/>
+   <layer remove="True" name="plonetheme_bootstrap_javascript"/>
  </skin-path>
 
 </object>

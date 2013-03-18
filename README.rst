@@ -24,13 +24,12 @@ You will also need to pin plone.app.jquerytools to version
  ...
 
 Twitter Boostrap itself is provided as browser resources by the addon
-collective.js.bootstrap.
+`collective.js.bootstrap`_.
 
 Documentation
 ===============
 
-This product is based in Twitter Bootstrap version 2.2.2 and it redistributes it
-according to its `License terms`_.
+This product is based in Twitter Bootstrap version 2.3.x.
 
 This product adds both the basic CSS file and also the Responsive one to have
 a mobile-enabled site from the start.
@@ -68,11 +67,11 @@ Authors
 =========
 
 - Nathan van Gheem, initial author
-- Mikel Larreategi, update to Twitter Bootstrap 2.2.1, current mantainer
+- Mikel Larreategi, update to Twitter Bootstrap 2.3.x, current mantainer
 
 
-.. _`License terms`: https://github.com/twitter/bootstrap/blob/master/LICENSE
+
 .. _`plonetheme.sunburst`: http://pypi.python.org/pypi/plonetheme.sunburst
 .. _`templer skeleton generator`: http://templer-manual.readthedocs.org/en/latest/
 .. _`GitHub issue tracker`: https://github.com/collective/plonetheme.bootstrap/issues
-
+.. _`collective.js.bootstrap`: https://pypi.python.org/pypi/collective.js.bootstrap

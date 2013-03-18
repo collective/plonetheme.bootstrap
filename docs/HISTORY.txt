@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b4 (UNRELEASED)
+1.0b4 (2013-03-18)
 --------------------
 
 - Remove label class from ArchetypesSelectionWidget class tag [libargutxi]

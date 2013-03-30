@@ -72,12 +72,8 @@ nav .selected a:hover {
 }
 */
 #portal-personaltools {
-    float: right;
     background: #e3e3e3;
-    position: relative;
     z-index: 3; /* personaltools should be above #portal-header (with z-index: 2) */
-    top: 0;
-    right: 0;
     padding: 0.25em 0.5em;
     font-size: 80%;
     border-bottom-right-radius: 0.5em;
@@ -86,10 +82,6 @@ nav .selected a:hover {
     -webkit-border-bottom-left-radius: 0.5em;
     -moz-border-radius-bottomleft: 0.5em;
     -moz-border-radius-bottomright: 0.5em;
-}
-#portal-personaltools #anon-personalbar a {
-    float: left;
-    margin: 0 0.5em;
 }
 
 #portal-languageselector {

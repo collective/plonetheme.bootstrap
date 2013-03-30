@@ -4,6 +4,8 @@ Changelog
 1.0 (UNRELEASED)
 --------------------
 
+- Fix alignment of login/user actions menu [silviot]
+
 
 1.0b4 (2013-03-18)
 --------------------

@@ -16,7 +16,6 @@
 * { margin: 0; padding: 0; }
 * :link,:visited { text-decoration:none }
 * ul,ol { list-style:none; }
-* li { display: inline; }
 * h1,h2,h3,h4,h5,h6,pre,code { font-size:1em; }
 * a img,:link img,:visited img { border:none }
 a { outline: none; }
@@ -1001,11 +1000,6 @@ div.field span.required:after {
 
 #folderHeader, #contextHeader {
         border-bottom: 2px solid white;
-}
-
-.dropdown-menu .divider {
-    margin: 0 !important;
-    border-bottom: 0;
 }
 
 #contextHeader { margin-top: 5px; }

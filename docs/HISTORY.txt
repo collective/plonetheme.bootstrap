@@ -4,6 +4,7 @@ Changelog
 1.0 (UNRELEASED)
 --------------------
 
+- Remove CSS that conflicts with Bootstrap dividers [rpatterson]
 - Fix alignment of login/user actions menu [silviot]
 
 

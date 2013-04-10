@@ -11,8 +11,10 @@
                size="18"
                value=""
                title="Search Site"
+               placeholder="Search Site"
                accesskey="4"
-               i18n:attributes="title title_search_site;placeholder text_search"
+               i18n:attributes="title title_search_site;
+                                placeholder title_search_site"
                tal:attributes="value request/form/SearchableText|nothing;"
                id="searchGadget"
                class="searchField search-query inputLabel input-medium" />

@@ -50,7 +50,7 @@ This product is intended to be used in two scenarios:
 
 Some designers prefer to work following the old best-practices instead of using
 the Diazo-way-of-theming, this product is for them. You can create a theme package
-(check `templer skeleton generator`_), and base your them on this one.
+(check `templer skeleton generator`_), and base your theme on this one.
 
 If you have any problem using this product or find any bug, please report it
 using the `GitHub issue tracker`_.

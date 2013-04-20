@@ -6,6 +6,7 @@ Changelog
 
 - Remove CSS that conflicts with Bootstrap dividers [rpatterson]
 - Fix alignment of login/user actions menu [silviot]
+- Fix profile for Plone < 4.2 [silviot]
 
 
 1.0b4 (2013-03-18)

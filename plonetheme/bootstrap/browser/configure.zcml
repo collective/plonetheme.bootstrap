@@ -3,7 +3,7 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="plonetheme.bootstrap">
 
-  <include package="z3c.jbot" file="meta.zcml" />
+  <include package="z3c.jbot" />
 
   <browser:jbot
       layer=".interfaces.IThemeSpecific"

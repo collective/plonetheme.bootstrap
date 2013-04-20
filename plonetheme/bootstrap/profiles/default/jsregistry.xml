@@ -1,4 +1,6 @@
 <?xml version="1.0"?>
+<!-- Keep this file synced with profiles/plone-41/jsregistry.xml -->
+
 <object name="portal_javascripts">
  <javascript cacheable="True" compression="none" cookable="True"
     enabled="True" inline="False" expression="" insert-before="*"

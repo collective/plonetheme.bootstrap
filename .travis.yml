@@ -3,8 +3,8 @@ env:
   global:
     - ARTIFACTS_AWS_REGION=eu-west-1
     - ARTIFACTS_S3_BUCKET=plonetheme.bootstrap
-    - secure: "IJuiVlT3f6hTU44EegJ3Opmi1dzCxr0wrXmdssoG+pW7z1h2SJ+4QvT9cCLm\nG5ZDjKC0Vq8exVewBRpRtX01gDZp8hsMqZ+UmWBNxdjXdVL4Y372ied8UwzZ\n/pVwAePdGgIbFH3+QWfEaTPdjckfnwi9FctJwWD37Vu89PdWOM4="
-    - secure: "RmhlQZAUp3kUYEiwbFCMy5gHH+tcsV0b0j9GS8rb8Vd8WlOLi68btlLYpLGU\nXkZvcclVz1XbffiBimz51FaDSje65GSmMm78LWzQd6OstmwQO8nDq6/NGIPf\novN+6HDZwnzBV+bw9Vp4fG41AL4vLWdec4aW8c5sZ3qg7eX6dTI="
+    - secure: "HUs3NWNUqV4w3goneQE2xcUFFl8Oft/dgvSdppwckCmjtZJuO9X5yL73BlPM\nVPCPTb+GD46irYFx1VyiudMoFH/kOC/3kablzNZRY21iNMiurv+oI7B2NjMG\nCk/9I6ez1txhpDnLoMXDrXU2v3HeM0b8RgAhw8JkeVlizxzAsSc="
+    - secure: "iuCAj9hoaH98bCJn9RUeAjfZj6+l225nnOVRjCfSjF9lW1J2Lvkr/juFbQQO\n7wfFQZfnUBoSbPOSzr/+9DUtLcKYIhOoNx2OXWaAJOgpVqX5OeRw2TvidAs1\nGk7jU0WHbe13X+44Wmm/ihF372q0NT5jB6Zb9haQM1CYyhnLJ0c="
   matrix:
     - PLONE_VERSION=4.0
     - PLONE_VERSION=4.1

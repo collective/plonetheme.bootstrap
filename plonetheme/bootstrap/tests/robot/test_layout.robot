@@ -6,8 +6,7 @@ Library         Selenium2Library  timeout=${SELENIUM_TIMEOUT}  implicit_wait=${S
 Resource        plone/app/robotframework/keywords.robot
 Resource        plone/app/robotframework/selenium.robot
 
-Library  Remote  ${PLONE_URL}/RobotRemote
-
+Library         Remote  ${PLONE_URL}/RobotRemote
 
 *** Test Cases ***
 
@@ -15,11 +14,13 @@ Test layout for Manager
   Given a Plone site skinned with this product
   When I go to the home page as  Manager
   I can see a beatiful layout named  manager_homepage.png
+  Error log is empty
 
 Test layout for Anonymous
   Given a Plone site skinned with this product
   When I go to the home page as Anonymous
   I can see a beatiful layout named  anonymous_homepage.png
+  Error log is empty
 
 
 *** Keywords ***

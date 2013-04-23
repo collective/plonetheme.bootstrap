@@ -4,6 +4,8 @@ from plone.app.testing import FunctionalTesting
 
 from plone.testing import z2
 from plone.app.robotframework.testing import AUTOLOGIN_LIBRARY_FIXTURE
+from plone.app.robotframework import RemoteLibraryLayer, AutoLogin
+from plonetheme.bootstrap.tests.check_error_log import CheckErrorLog
 
 
 class BootstrapTheme(PloneSandboxLayer):
@@ -26,6 +28,12 @@ class BootstrapTheme(PloneSandboxLayer):
 
 BOOTSTRAPTHEME_FIXTURE = BootstrapTheme()
 
+CHECK_ERROR_LOG_FIXTURE = RemoteLibraryLayer(
+    bases=(PLONE_FIXTURE,),
+    libraries=(CheckErrorLog, AutoLogin),
+    name="CheckErrorLogRemoteLibrary:RobotRemote"
+)
+
 BOOTSTRAPTHEME_ROBOT = FunctionalTesting(
-    bases=(AUTOLOGIN_LIBRARY_FIXTURE, BOOTSTRAPTHEME_FIXTURE, z2.ZSERVER_FIXTURE),
+    bases=(CHECK_ERROR_LOG_FIXTURE, BOOTSTRAPTHEME_FIXTURE, z2.ZSERVER_FIXTURE),
     name='BootstrapTheme:Robot')

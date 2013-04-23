@@ -28,3 +28,5 @@ script:
   - bin/test
 after_script:
   - "travis-artifacts upload --path parts/test --target-path builds/$TRAVIS_BUILD_ID/$PLONE_VERSION"
+# Robotframework log will be available at
+# http://plonetheme.bootstrap.s3.amazonaws.com/index.html

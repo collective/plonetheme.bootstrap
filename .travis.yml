@@ -1,9 +1,15 @@
 language: python
 env:
-  - PLONE_VERSION=4.0
-  - PLONE_VERSION=4.1
-  - PLONE_VERSION=4.2
-  - PLONE_VERSION=4.3
+  global:
+    - ARTIFACTS_AWS_REGION=eu-west-1
+    - ARTIFACTS_S3_BUCKET=plonetheme.bootstrap
+    - secure: "IJuiVlT3f6hTU44EegJ3Opmi1dzCxr0wrXmdssoG+pW7z1h2SJ+4QvT9cCLm\nG5ZDjKC0Vq8exVewBRpRtX01gDZp8hsMqZ+UmWBNxdjXdVL4Y372ied8UwzZ\n/pVwAePdGgIbFH3+QWfEaTPdjckfnwi9FctJwWD37Vu89PdWOM4="
+    - secure: "RmhlQZAUp3kUYEiwbFCMy5gHH+tcsV0b0j9GS8rb8Vd8WlOLi68btlLYpLGU\nXkZvcclVz1XbffiBimz51FaDSje65GSmMm78LWzQd6OstmwQO8nDq6/NGIPf\novN+6HDZwnzBV+bw9Vp4fG41AL4vLWdec4aW8c5sZ3qg7eX6dTI="
+  matrix:
+    - PLONE_VERSION=4.0
+    - PLONE_VERSION=4.1
+    - PLONE_VERSION=4.2
+    - PLONE_VERSION=4.3
 python:
   - 2.7
 install:
@@ -15,7 +21,10 @@ install:
   - bin/buildout -N -t 3 -c base.cfg install download install
   - bin/buildout -N -t 3 -c base.cfg
 before_script:
+  - "gem install travis-artifacts"
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
 script:
   - bin/test --coverage -m Products.CMFPlomino
+after_script:
+  - "travis-artifacts upload --path parts/test --target-path builds/$TRAVIS_BUILD_ID/$PLONE_VERSION"

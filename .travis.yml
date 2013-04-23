@@ -7,7 +7,7 @@ env:
 python:
   - 2.7
 install:
-  - sed -ie "s#test-4.x.cfg#test-$PLONE_VERSION.x.cfg#" base.cfg
+  - sed -ie "s#travis-4.x.cfg#travis-$PLONE_VERSION.x.cfg#" base.cfg
   - cat base.cfg # debug
   - mkdir -p buildout-cache/eggs
   - mkdir -p buildout-cache/downloads

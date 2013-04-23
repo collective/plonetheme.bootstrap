@@ -29,5 +29,7 @@ script:
   - bin/test
 after_script:
   - "travis-artifacts upload --path parts/test --target-path builds/$TRAVIS_BUILD_ID/$PLONE_VERSION"
+  - "travis-artifacts upload --path test_layout/Test_layout_for_Anonymous/anonymous_homepage.png --target-path homepage_$PLONE_VERSION_anonymous.png"
+  - "travis-artifacts upload --path parts/test/test_layout/Test_layout_for_Manager/manager_homepage.png --target-path homepage_$PLONE_VERSION_manager.png"
   - echo Report uploaded. Go to
   - echo "http://plonetheme.bootstrap.s3.amazonaws.com/builds/$TRAVIS_BUILD_ID/$PLONE_VERSION/robot_log.html"

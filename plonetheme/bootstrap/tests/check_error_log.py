@@ -10,5 +10,5 @@ class CheckErrorLog(RemoteLibrary):
         """
         entries = self.aq_parent.aq_base.error_log.getLogEntries()
         if entries:
-            error = u"Expected zero entries in site error log, found %n instead: %s"
+            error = u"Expected zero entries in site error log, found %i instead: %s"
             raise Exception(error % len(entries), repr(entries))

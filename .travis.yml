@@ -25,6 +25,6 @@ before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
 script:
-  - bin/test --coverage -m Products.CMFPlomino
+  - bin/test
 after_script:
   - "travis-artifacts upload --path parts/test --target-path builds/$TRAVIS_BUILD_ID/$PLONE_VERSION"

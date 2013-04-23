@@ -3,6 +3,7 @@ import os
 import robotsuite
 from plone.testing import layered
 from plonetheme.bootstrap.testing import BOOTSTRAPTHEME_ROBOT
+from plonetheme.bootstrap.testing import BOOTSTRAPTHEME_ROBOT_LOGGED_IN
 
 
 def test_suite():
@@ -18,5 +19,9 @@ def test_suite():
         suite.addTests([
             layered(robotsuite.RobotTestSuite(test),
                     layer=BOOTSTRAPTHEME_ROBOT),
+        ])
+        suite.addTests([
+            layered(robotsuite.RobotTestSuite(test),
+                    layer=BOOTSTRAPTHEME_ROBOT_LOGGED_IN),
         ])
     return suite

@@ -6,6 +6,7 @@ from plone.app.testing import FunctionalTesting
 from plone.app.testing import selenium_layers
 
 from plone.testing import z2
+from plone.app.robotframework.testing import AUTOLOGIN_LIBRARY_FIXTURE
 
 
 class BootstrapTheme(PloneSandboxLayer):
@@ -19,15 +20,19 @@ class BootstrapTheme(PloneSandboxLayer):
 
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_quickinstaller
-        import ipdb;ipdb.set_trace()
+        portal.portal_quickinstaller.installProduct('plonetheme.bootstrap')
+        # A different install profile will be chosen for Plone>4.1
+
+        portal.portal_css.cookResources()
+        portal.portal_javascripts.cookResources()
 
 
 BOOTSTRAPTHEME_FIXTURE = BootstrapTheme()
 
-BOOTSTRAPTHEME_FUNCTIONAL_TESTING = FunctionalTesting(
-    bases=(BOOTSTRAPTHEME_FIXTURE,),
-    name="BootstrapTheme:Functional")
-
 BOOTSTRAPTHEME_ROBOT = FunctionalTesting(
     bases=(BOOTSTRAPTHEME_FIXTURE, z2.ZSERVER_FIXTURE),
-    name='BOOTSTRAPTHEME_ROBOT')
+    name='BootstrapTheme:Robot')
+
+BOOTSTRAPTHEME_ROBOT_LOGGED_IN = FunctionalTesting(
+    bases=(AUTOLOGIN_LIBRARY_FIXTURE, BOOTSTRAPTHEME_FIXTURE, z2.ZSERVER_FIXTURE),
+    name='BootstrapTheme:Robot')

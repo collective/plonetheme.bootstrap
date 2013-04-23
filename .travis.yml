@@ -14,6 +14,7 @@ python:
   - 2.7
 install:
   - sed -ie "s#travis-4.x.cfg#travis-$PLONE_VERSION.x.cfg#" base.cfg
+  - if [ $PLONE_VERSION==4.0 -o $PLONE_VERSION==4.1 ] ; then echo -e "plone.app.testing=4.2.2\n" >> base.cfg; fi
   - cat base.cfg # debug
   - mkdir -p buildout-cache/eggs
   - mkdir -p buildout-cache/downloads
@@ -29,4 +30,4 @@ script:
 after_script:
   - "travis-artifacts upload --path parts/test --target-path builds/$TRAVIS_BUILD_ID/$PLONE_VERSION"
   - echo Report uploaded. Go to
-  - echo http://plonetheme.bootstrap.s3.amazonaws.com/builds/$TRAVIS_BUILD_ID/$PLONE_VERSION/robot_log.html
+  - echo "http://plonetheme.bootstrap.s3.amazonaws.com/builds/$TRAVIS_BUILD_ID/$PLONE_VERSION/robot_log.html"

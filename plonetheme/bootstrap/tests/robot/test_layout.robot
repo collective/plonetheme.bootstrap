@@ -14,12 +14,12 @@ Library  Remote  ${PLONE_URL}/RobotRemote
 Test layout for Manager
   Given a Plone site skinned with this product
   When I go to the home page as  Manager
-  I can see a beatiful layout named  manager_homepage
+  I can see a beatiful layout named  manager_homepage.png
 
 Test layout for Anonymous
   Given a Plone site skinned with this product
   When I go to the home page as Anonymous
-  I can see a beatiful layout named  anonymous_homepage
+  I can see a beatiful layout named  anonymous_homepage.png
 
 
 *** Keywords ***

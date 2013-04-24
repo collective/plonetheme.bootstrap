@@ -11,9 +11,9 @@ setup(name='plonetheme.bootstrap',
       # Get more strings from
       # http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
-        "Framework :: Plone",
-        "Programming Language :: Python",
-        ],
+          "Framework :: Plone",
+          "Programming Language :: Python",
+      ],
       keywords='plone theme twitterbootstrap',
       author='Nathan van Gheem, Mikel Larreategi',
       author_email='mlarreategi@codesyntax.com',
@@ -31,6 +31,12 @@ setup(name='plonetheme.bootstrap',
           'collective.js.bootstrap',
           # -*- Extra requirements: -*-
       ],
+      extras_require={
+          'test': [
+              'plone.app.testing[robot]>=4.2.2',
+              'plone.app.robotframework',
+          ]
+      },
       entry_points="""
       # -*- Entry points: -*-
 

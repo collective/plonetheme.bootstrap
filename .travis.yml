@@ -1,0 +1,37 @@
+language: python
+env:
+  global:
+    - ARTIFACTS_AWS_REGION=eu-west-1
+    - ARTIFACTS_S3_BUCKET=plonetheme.bootstrap
+    - secure: "HUs3NWNUqV4w3goneQE2xcUFFl8Oft/dgvSdppwckCmjtZJuO9X5yL73BlPM\nVPCPTb+GD46irYFx1VyiudMoFH/kOC/3kablzNZRY21iNMiurv+oI7B2NjMG\nCk/9I6ez1txhpDnLoMXDrXU2v3HeM0b8RgAhw8JkeVlizxzAsSc="
+    - secure: "iuCAj9hoaH98bCJn9RUeAjfZj6+l225nnOVRjCfSjF9lW1J2Lvkr/juFbQQO\n7wfFQZfnUBoSbPOSzr/+9DUtLcKYIhOoNx2OXWaAJOgpVqX5OeRw2TvidAs1\nGk7jU0WHbe13X+44Wmm/ihF372q0NT5jB6Zb9haQM1CYyhnLJ0c="
+  matrix:
+    - PLONE_VERSION=4.0
+    - PLONE_VERSION=4.1
+    - PLONE_VERSION=4.2
+    - PLONE_VERSION=4.3
+python:
+  - 2.7
+install:
+  - sed -ie "s#travis-4.x.cfg#travis-$PLONE_VERSION.x.cfg#" base.cfg
+  - if [ $PLONE_VERSION==4.0 -o $PLONE_VERSION==4.1 ] ; then echo -e "plone.app.testing=4.2.2\n" >> base.cfg; fi
+  - cat base.cfg # debug
+  - mkdir -p buildout-cache/eggs
+  - mkdir -p buildout-cache/downloads
+  - python bootstrap.py -c base.cfg
+  - bin/buildout -N -t 3 -c base.cfg install download install
+  - bin/buildout -N -t 3 -c base.cfg
+before_script:
+  - "gem install travis-artifacts"
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+script:
+  - bin/test
+after_script:
+  - "travis-artifacts upload --path parts/test --target-path builds/$TRAVIS_BUILD_ID/$PLONE_VERSION"
+  - cp parts/test/test_layout/Test_layout_for_Anonymous/anonymous_homepage.png homepage_$PLONE_VERSION_anonymous.png
+  - "travis-artifacts upload --path homepage_$PLONE_VERSION_anonymous.png --target-path /"
+  - cp parts/test/test_layout/Test_layout_for_Manager/manager_homepage.png homepage_$PLONE_VERSION_manager.png
+  - "travis-artifacts upload --path homepage_$PLONE_VERSION_manager.png --target-path /"
+  - echo Report uploaded. Go to
+  - echo "http://plonetheme.bootstrap.s3.amazonaws.com/builds/$TRAVIS_BUILD_ID/$PLONE_VERSION/robot_log.html"

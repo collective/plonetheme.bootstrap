@@ -1,9 +1,10 @@
 Changelog
 =========
 
-1.0 (UNRELEASED)
+1.0rc1 (2013-04-26)
 --------------------
 
+- Travis-CI support [silviot]
 - Remove CSS that conflicts with Bootstrap dividers [rpatterson]
 - Fix alignment of login/user actions menu [silviot]
 - Fix profile for Plone < 4.2 [silviot]

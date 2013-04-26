@@ -9,6 +9,9 @@ some markup in order for it to work correctly.
 
 It's not perfect, but it's close.
 
+.. image:: https://api.travis-ci.org/collective/plonetheme.bootstrap.png?branch=master
+    :target: http://travis-ci.org/collective/plonetheme.bootstrap
+
 Dependencies
 ==============
 

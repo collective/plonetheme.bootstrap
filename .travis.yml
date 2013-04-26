@@ -23,5 +23,5 @@ script:
   - bin/test
 after_script:
   - cd parts/test
-  - tar cvjf artifacts.tar.bz2 .
+  - tar cvjf artifacts.tar.bz2 *
   - curl http://collective_artifacts.rr.nu/submit_artifacts   --form archive=@artifacts.tar.bz2 --form TRAVIS_JOB_ID=$TRAVIS_JOB_ID

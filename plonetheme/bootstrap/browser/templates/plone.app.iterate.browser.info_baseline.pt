@@ -1,0 +1,26 @@
+<div class="portalMessage info alert"
+     tal:define="working_copy view/working_copy;"
+     i18n:domain="plone">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+
+  <strong i18n:translate="label_locked">Locked</strong>
+
+  <tal:block i18n:translate="working_copy_info">
+      This item is being edited by
+      <a i18n:name="creator"
+         tal:attributes="href view/creator_url"
+         tal:omit-tag="not: view/creator_url"
+         tal:content="view/creator_name">john smith</a>
+      in
+      <a i18n:name="working_copy"
+         i18n:translate="label_working_copy"
+         tal:attributes="href working_copy/@@plone_context_state/view_url;
+                         title working_copy/Description">a working copy</a>
+      created on
+      <span i18n:name="created" tal:content="view/created"/>.
+  </tal:block>
+
+  (<a i18n:translate="label_view_changes"
+      tal:attributes="href string:${context/absolute_url}/@@iterate_diff">
+    View changes</a>)
+</div>

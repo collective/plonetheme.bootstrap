@@ -1529,7 +1529,10 @@ fieldset,
     height: 40px;
     color: Black;
     letter-spacing: -0.05em;
-    margin: inherit -0.05em;
+    margin-top: inherit;
+    margin-bottom: inherit;
+    margin-left: -0.05em;
+    margin-right: -0.05em;
     font-size: 38.5px; /* 26px equiv */
     font-weight: bold;
 }

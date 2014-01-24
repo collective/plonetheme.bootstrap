@@ -28,7 +28,7 @@ setup(name='plonetheme.bootstrap',
           'z3c.jbot',
           'plone.browserlayer',
           'plone.app.jquery >1.7,<1.8',
-          'collective.js.bootstrap',
+          'collective.js.bootstrap>3.0',
           # -*- Extra requirements: -*-
       ],
       extras_require={

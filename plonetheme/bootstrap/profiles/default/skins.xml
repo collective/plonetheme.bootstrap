@@ -15,7 +15,7 @@
  <object remove="True" name="plonetheme_bootstrap_styles" />
  <object remove="True" name="plonetheme_bootstrap_javascript" />
 
- <skin-path name="Bootstrap Theme" based-on="Plone Default">
+ <skin-path name="Bootstrap Theme" based-on="Sunburst Theme">
   <layer name="plonetheme_bootstrap_custom"
      insert-after="custom"/>
  </skin-path>

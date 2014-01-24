@@ -62,4 +62,13 @@
       handler=".upgrades.common"
       profile="plonetheme.bootstrap:default" />
 
+  <genericsetup:upgradeStep
+      title="Remove old registered TW Bootstrap CSS file"
+      description=""
+      source="1003"
+      destination="1004"
+      handler=".upgrades.remove_old_2_css"
+      profile="plonetheme.bootstrap:default" />
+
+
 </configure>

@@ -1,9 +1,7 @@
+from interfaces import IBootstrapView
+from Products.Five import BrowserView
 from zope.component import getMultiAdapter
 from zope.interface import implements
-from Products.Five import BrowserView
-from plone.app.layout.navigation.navtree import buildFolderTree
-from Products.CMFPlone.browser.navtree import NavtreeQueryBuilder
-from interfaces import IBootstrapUtils, IBootstrapView
 
 
 class BootstrapView(BrowserView):
@@ -11,11 +9,11 @@ class BootstrapView(BrowserView):
 
     def getViewportValues(self, view=None):
         """ Determine the value of the viewport meta-tag """
-        return {'width': 'device-width',
-                'initialscale': '0.6666',
-                'maximumscale': '1.0',
-                'minimumscale': '0.6666',
+        values = {'width': 'device-width',
+                 'initialscale': '1.0',
                 }
+
+        return ';'.join('%s=%s' % (k, v) for k, v in values.items())
 
     def getColumnsClasses(self, view=None):
         """ Determine whether a column should be shown. The left column is
@@ -38,29 +36,29 @@ class BootstrapView(BrowserView):
 
         if not sl and not sr:
             # we don't have columns, thus conten takes the whole width
-            columns['content'] = "span12"
+            columns['content'] = "col-md-12"
 
         elif sl and sr:
             # In case we have both columns, content takes 50% of the whole
             # width and the rest 50% is spread between the columns
-            columns['one'] = "span3"
-            columns['content'] = "span6"
-            columns['two'] = "span3"
+            columns['one'] = "col-md-3"
+            columns['content'] = "col-md-6"
+            columns['two'] = "col-md-3"
 
         elif (sr and not sl) and not isRTL:
             # We have right column and we are NOT in RTL language
-            columns['content'] = "span9"
-            columns['two'] = "span3"
+            columns['content'] = "col-md-9"
+            columns['two'] = "col-md-3"
 
         elif (sl and not sr) and isRTL:
             # We have left column and we are in RTL language
-            columns['one'] = "span3"
-            columns['content'] = "span9"
+            columns['one'] = "col-md-3"
+            columns['content'] = "col-md-9"
 
         elif (sl and not sr) and not isRTL:
             # We have left column and we are in NOT RTL language
-            columns['one'] = "span3"
-            columns['content'] = "span9"
+            columns['one'] = "col-md-3"
+            columns['content'] = "col-md-9"
 
         # # append cell to each css-string
         # for key, value in columns.items():

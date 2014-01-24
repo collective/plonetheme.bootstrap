@@ -41,7 +41,7 @@
 
         <meta name="viewport"
               tal:define="viewportvalues bootstrapview/getViewportValues"
-              tal:attributes="content string:width=${viewportvalues/width},initial-scale=${viewportvalues/initialscale},maximum-scale=${viewportvalues/maximumscale},minimum-scale=${viewportvalues/minimumscale}"
+              tal:attributes="content viewportvalues"
                 content="width=device-width, initial-scale=0.6666, maximum-scale=1.0, minimum-scale=0.6666" />
         <meta name="generator" content="Plone - http://plone.org" />
     </tal:notajax>
@@ -57,12 +57,12 @@
 
     <div id="visual-portal-wrapper">
         <header tal:condition="not:ajax_load">
-            <div id="portal-header-wrapper" class="container-fluid">
+            <div id="portal-header-wrapper" class="container">
                 <div tal:replace="structure provider:plone.portaltop" />
             </div>
         </header>
-        <div id="portal-columns" class="container-fluid">
-            <div class="row-fluid">
+        <div id="portal-columns" class="container">
+            <div class="row">
                 <tal:notajax tal:condition="not:ajax_load">
                 <div id="portal-column-one"
                     class="cell width-1:4 position-0"
@@ -86,7 +86,7 @@
                             tal:attributes="class python:show_border and 'documentEditable' or ''">
 
                             <div id="editing-bar"
-                                class="row-fluid"
+                                class="row"
                                 tal:condition="show_border"
                                 tal:content="structure provider:plone.contentviews" />
 
@@ -163,8 +163,8 @@
 
         <footer tal:condition="not:ajax_load">
             <div id="portal-footer-wrapper"
-                class="container-fluid">
-                <div class="row-fluid">
+                class="container">
+                <div class="row">
                     <div tal:replace="structure provider:plone.portalfooter" />
                 </div>
             </div>

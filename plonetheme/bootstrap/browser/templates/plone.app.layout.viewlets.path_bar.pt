@@ -6,10 +6,6 @@
 
   <li id="breadcrumbs-home">
     <a href="#" i18n:translate="Home" tal:attributes="href view/navigation_root_url">Home</a>
-      <span class="divider" tal:condition="breadcrumbs">
-          <tal:ltr condition="not: is_rtl">/</tal:ltr>
-          <tal:rtl condition="is_rtl">\</tal:rtl>
-      </span>
   </li>
 
   <tal:crumb tal:repeat="crumb breadcrumbs">
@@ -25,10 +21,6 @@
                tal:content="title">
                 crumb
             </a>
-            <span class="divider" tal:condition="not: is_last">
-                <tal:ltr condition="not: is_rtl">/</tal:ltr>
-                <tal:rtl condition="is_rtl">\</tal:rtl>
-            </span>
             <tal:last tal:content="title" tal:condition="is_last" />
         </li>
       </tal:item>

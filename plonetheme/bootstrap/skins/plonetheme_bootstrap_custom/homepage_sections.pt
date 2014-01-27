@@ -1,0 +1,85 @@
+<tal:master define="level options/level|python:0;
+                    children options/children | nothing;
+                    bottomLevel options/bottomLevel | nothing;
+                    normalizeString nocall:context/plone_utils/normalizeString;
+                    viewActions context/portal_properties/site_properties/typesUseViewActionInListings|python:();
+                    member context/@@plone_portal_state/member;
+                    member_id member/getId|nothing;
+                    plone_view context/@@plone">
+
+
+<tal:sections
+     i18n:domain="plone">
+    <p class="hidden" i18n:translate="heading_sections">Sections</p>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+              <span class="sr-only" i18n:translate="" i18n:domain="plonetheme.bootstrap">
+                Toggle navigation
+              </span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand hidden-lg hidden-md"
+                    tal:attributes="href context/@@plone_portal_state/navigation_root_url"
+                    tal:content="context/@@plone_portal_state/portal_title">
+                    Site title
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+            <ul class="nav navbar-nav" id="navigation">
+                <metal:main define-macro="nav_main">
+                <tal:navitem repeat="node children">
+                <li tal:define="children   node/children;
+                                item       node/item;
+                                useView    python:item.portal_type in viewActions;
+                                item_icon  python:plone_view.getIcon(item);
+                                itemUrl    python:test(useView, item.getURL() + '/view', item.getURL());
+                                linkRemote item/getRemoteUrl;
+                                isCurrent  node/currentItem;
+                                liLevel    level;
+                                main_menu  python:liLevel == 1;
+                                show_lower python:children and level+2 < bottomLevel;
+                                item_type_class string:itemtype-${item/portal_type};
+                                css_class_active python:isCurrent and 'active' or '';
+                                css_class_submenu python:show_lower and 'dropdown' or '';
+                                css_class_dropdown python:show_lower and 'dropdown' or '';
+                                css_class_submenu python:not main_menu and css_class_submenu or css_class_dropdown;
+                                css_class_to_show python:(css_class_active + css_class_submenu).strip() or None"
+                    tal:attributes="class css_class_to_show"
+                    tal:condition="python: bottomLevel &lt;= 0 or level &lt; bottomLevel-1">
+
+                    <tal:level define="item_wf_state_class python: 'state-' + normalizeString(item.review_state);
+
+                                    ">
+                        <a tal:attributes="href python:test(linkRemote, item.getRemoteUrl, itemUrl);
+                                           title item/Description|nothing;
+                                           class python:(children and 'dropdown-toggle '  or '') + item_type_class;
+                                           data-toggle python:children and 'dropdown' or None;
+                                           id string:${node/id}-${liLevel}"
+                                           >
+                            <span tal:replace="item/Title">Selected Item Title</span>
+                            <strong tal:condition="python:main_menu and children" class="caret"></strong>
+                        </a>
+
+                    <ul tal:define="last_class string:;
+                                    level python:level+1;
+                    "
+                        tal:attributes="class string:dropdown-menu ${last_class};
+                                        role python:main_menu and 'menu' or None"
+                        tal:condition="python:show_lower and children">
+                        <metal:recurse use-macro="context/homepage_sections/macros/nav_main"/>
+                    </ul>
+                    </tal:level>
+                </li>
+                </tal:navitem>
+                </metal:main>
+            </ul>
+        </div>
+    </nav>
+</tal:sections>
+</tal:master>
+
+
+

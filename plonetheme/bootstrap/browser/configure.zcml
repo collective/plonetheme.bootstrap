@@ -16,6 +16,17 @@
       allowed_interface=".interfaces.IBootstrapView"
       permission="zope.Public"
     />
+
+
+  <browser:viewlet
+      for="*"
+      name="plonetheme.bootstrap.dropdownmenu"
+      class=".dropdownmenu.BootstrapDropdownMenu"
+      template="dropdownmenu.pt"
+      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+      permission="zope2.View"
+      />
+
   <browser:resource
     name="bootstrap-integration.js"
     file="bootstrap-integration.js"/>

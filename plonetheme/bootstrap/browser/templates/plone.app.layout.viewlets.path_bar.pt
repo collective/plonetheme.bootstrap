@@ -1,4 +1,4 @@
-<ul class="breadcrumb"
+<ol class="breadcrumb"
     tal:define="breadcrumbs view/breadcrumbs;
                 is_rtl view/is_rtl"
     tal:attributes="dir python:is_rtl and 'rtl' or 'ltr'"
@@ -34,4 +34,4 @@
       </tal:item>
   </tal:crumb>
 
-</ul>
+</ol>

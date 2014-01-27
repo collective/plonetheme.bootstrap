@@ -1,27 +1,28 @@
 <tal:define
      tal:define="navigation_root_url view/navigation_root_url;"
      >
-    <form name="searchform" class="form-search pull-right"
+    <form name="searchform" class="form-inline form-search pull-right"
           action="search"
           i18n:domain="plone"
           tal:attributes="action string:${navigation_root_url}/@@search;">
       <div class="LSBox">
-        <input name="SearchableText"
-               type="text"
-               size="18"
-               value=""
-               title="Search Site"
-               placeholder="Search Site"
-               accesskey="4"
-               i18n:attributes="title title_search_site;
-                                placeholder title_search_site"
-               tal:attributes="value request/form/SearchableText|nothing;"
-               id="searchGadget"
-               class="searchField search-query inputLabel input-medium" />
+        <div class="form-group">
+          <input name="SearchableText"
+                 type="text"
+                 size="18"
+                 value=""
+                 title="Search Site"
+                 placeholder="Search Site"
+                 accesskey="4"
+                 i18n:attributes="title title_search_site;
+                                  placeholder title_search_site"
+                 tal:attributes="value request/form/SearchableText|nothing;"
+                 id="searchGadget"
+                 class="searchField search-query inputLabel input-medium form-control" />
+        </div>
+        <button i18n:translate="label_search" class="btn btn-default" type="submit">Search</button>
 
-        <button i18n:translate="label_search" class="btn" type="submit">Search</button>
-
-        <div class="searchSection">
+        <div class="searchSection checkbox">
             <label for="searchbox_currentfolder_only"
                    style="cursor: pointer">
               <span

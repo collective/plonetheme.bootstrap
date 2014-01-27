@@ -15,15 +15,15 @@ It's not perfect, but it's close.
 Dependencies
 ==============
 
-Latest Twitter Bootstrap requires jQuery 1.7.x, you can install
-it in Plone pinning plone.app.jquery in your buildout to version 1.7.2.
+Latest Twitter Bootstrap requires jQuery 1.8.x, you can install
+it in Plone pinning plone.app.jquery in your buildout to version 1.8.3.
 You will also need to pin plone.app.jquerytools to version
-1.5.1 to guarantee jQuery 1.7.x compatibility::
+1.5.6 to guarantee jQuery 1.8.x compatibility::
 
  [versions]
  ...
- plone.app.jquery = 1.7.2
- plone.app.jquerytools = 1.5.1
+ plone.app.jquery = 1.8.3
+ plone.app.jquerytools = 1.5.6
  ...
 
 Twitter Boostrap itself is provided as browser resources by the addon
@@ -32,12 +32,8 @@ Twitter Boostrap itself is provided as browser resources by the addon
 Documentation
 ===============
 
-This product is based in Twitter Bootstrap version 2.3.x.
-
-This product adds both the basic CSS file and also the Responsive one to have
-a mobile-enabled site from the start.
-
-The generated markup is based on 'fluid CSS' and it contains a 12 column grid.
+This product is based in Twitter Bootstrap version 3. The product will reuse
+`collective.js.bootstrap`_ to get those CSS and JS files.
 
 The basic HTML markup is a mix of `plonetheme.sunburst`_ and Twitter Bootstrap
 and it uses the same approach of constructing the columns as Sunburst Theme:

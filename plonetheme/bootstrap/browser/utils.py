@@ -10,10 +10,10 @@ class BootstrapView(BrowserView):
     def getViewportValues(self, view=None):
         """ Determine the value of the viewport meta-tag """
         values = {'width': 'device-width',
-                 'initialscale': '1.0',
+                 'initial-scale': '1.0',
                 }
 
-        return ';'.join('%s=%s' % (k, v) for k, v in values.items())
+        return ','.join('%s=%s' % (k, v) for k, v in values.items())
 
     def getColumnsClasses(self, view=None):
         """ Determine whether a column should be shown. The left column is

@@ -24,7 +24,7 @@ function fixArchetypesForms(){
         var radio = $(this).prev();
 	if ($(radio).attr("type")=='radio'){
 	    $(this).prepend(radio);
-	}  
+	}
     });
 
 
@@ -32,7 +32,7 @@ function fixArchetypesForms(){
 	 $(this).removeClass('label');
     }
     );
-    
+
 
     /* Move add-on control-panel inputs inside labels */
     $('input[type=checkbox]').each(function(){
@@ -119,6 +119,10 @@ $(document).ready(function(){
 
     /* Fix archetypes forms if there's any */
     fixArchetypesForms();
+
+
+    /* Convert all 'hiddenStructure' classes to 'hidden' */
+    $('.hiddenStructure').addClass('hidden');
 
     /*
     $('ul#navigation li[data-dropdown="dropdown"]').hover(function(){

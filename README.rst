@@ -2,7 +2,7 @@ Introduction
 ============
 
 plonetheme.bootstrap integrates Twitter Bootstrap CSS/JS framework
-into Plone. You can checkout the framework at http://twitter.github.com/bootstrap
+into Plone. You can checkout the framework at http://getbootstrap.com/
 
 It overrides some templates and uses javascript to transform
 some markup in order for it to work correctly.

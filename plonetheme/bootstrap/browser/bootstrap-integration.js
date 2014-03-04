@@ -11,13 +11,14 @@ function fixArchetypesForms(){
         var cont = $(this).contents().filter(function(){
             return this.nodeType == 3 && $(this).text().trim();
         }).wrap('<label></label>');
-        $(this).removeClass('label');
+
     });
 
     /* Move archetypes BooleanFields' checkbox, inside the label */
     $('.ArchetypesBooleanWidget label').each(function(){
         var checkbox = $(this).parent().find('input[type=checkbox]');
         $(this).prepend(checkbox);
+        $(this).removeClass('label');
     });
 
     $('.ArchetypesSelectionWidget label').each(function(){
@@ -34,7 +35,7 @@ function fixArchetypesForms(){
     );
 
 
-    /* Move add-on control-panel inputs inside labels */
+    /* Move add-on control-panel inputs inside labels*/
     $('input[type=checkbox]').each(function(){
         var label = $(this).parent().find('label');
         for (var i = label.length - 1; i >= 0; i--) {
@@ -47,7 +48,8 @@ function fixArchetypesForms(){
 
                 }
                 $(label[i]).prepend($(this));
-
+                var span = $(label[i]).find('span');
+                span.removeClass('label');
             }
 
         };
@@ -55,6 +57,7 @@ function fixArchetypesForms(){
     });
 
     $('form.edit-form .label').removeClass('label');
+
 
     /* Help text in Archetypes forms */
     $('.formHelp').addClass('help-block').removeClass('formHelp');

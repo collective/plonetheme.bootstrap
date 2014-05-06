@@ -7,8 +7,6 @@
 
   <include package="collective.js.bootstrap" />
 
-  <five:registerPackage package="." />
-
   <cmf:registerDirectory name="skins" directory="skins" recursive="True" />
 
   <include package=".browser" />

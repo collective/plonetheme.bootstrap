@@ -26,6 +26,15 @@
       manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
       permission="zope2.View"
       />
+      
+  <browser:page
+        name="plonetheme_navigation_root"
+        for="*"
+        class=".navigation.NavigationRoot"
+        allowed_interface=".navigation.INavigationRootView"
+        permission="zope2.View"
+        layer=".interfaces.IThemeSpecific"
+        />
 
   <browser:resource
     name="bootstrap-integration.js"

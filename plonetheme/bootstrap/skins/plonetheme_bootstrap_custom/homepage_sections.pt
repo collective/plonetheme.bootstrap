@@ -1,6 +1,9 @@
 <tal:master define="level options/level|python:0;
                     children options/children | nothing;
                     bottomLevel options/bottomLevel | nothing;
+                    portal_tabs options/portal_tabs| nothing;
+                    selected_tabs options/selected_tabs | nothing;
+                    selected_portal_tab options/selected_portal_tab;
                     normalizeString nocall:context/plone_utils/normalizeString;
                     viewActions context/portal_properties/site_properties/typesUseViewActionInListings|python:();
                     member context/@@plone_portal_state/member;
@@ -8,9 +11,10 @@
                     plone_view context/@@plone">
 
 
-<tal:sections
-     i18n:domain="plone">
+<tal:sections i18n:domain="plone">
+
     <p class="hidden" i18n:translate="heading_sections">Sections</p>
+
     <nav class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
@@ -30,6 +34,9 @@
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
             <ul class="nav navbar-nav" id="navigation">
                 <metal:main define-macro="nav_main">
+                <li tal:attributes="class python:selected_portal_tab=='index_html' and 'home active' or 'home'"><a tal:condition="python:level==1"
+                                tal:define="navigation_view context/@@ikaslan_navigation_root"
+                                tal:attributes="href navigation_view/navigation_root_url" i18n:translate="Home" i18n:domain="plone"></a></li>
                 <tal:navitem repeat="node children">
                 <li tal:define="children   node/children;
                                 item       node/item;
@@ -42,7 +49,7 @@
                                 main_menu  python:liLevel == 1;
                                 show_lower python:children and level+2 < bottomLevel;
                                 item_type_class string:itemtype-${item/portal_type};
-                                css_class_active python:isCurrent and 'active' or '';
+                                css_class_active python:(isCurrent or item.id==selected_portal_tab) and 'active' or '';
                                 css_class_submenu python:show_lower and 'dropdown' or '';
                                 css_class_dropdown python:show_lower and 'dropdown' or '';
                                 css_class_submenu python:not main_menu and css_class_submenu or css_class_dropdown;

@@ -81,7 +81,7 @@ $(document).ready(function(){
     var foundPrimary = false;
     $('div.formControls input[type="submit"]').each(function(){
         var input = $(this);
-        var button = $('<button type="submit" class="btn" name="' + input.attr('name') + '">' +
+        var button = $('<button type="submit" class="btn" name="' + input.attr('name') + '"value="' + input.attr('value') + '">' +
             input.attr('value') + '</button>');
 
         if(input.hasClass('context') && !foundPrimary){

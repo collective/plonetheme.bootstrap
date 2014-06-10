@@ -257,7 +257,7 @@
 
         <div class="visualClear"><!-- --></div>
 
-        <div id="tinymcefooter" class="row-fluid">
+        <div id="tinymcefooter" class="row">
             <div id="upload-button" class="col-md-9">
                 <img src="img/application_get.png" /> <a id="upload" href="" i18n:translate="" i18n:domain="plone.tinymce">Upload</a>
             </div>

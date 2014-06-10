@@ -884,7 +884,7 @@ BrowserDialog.prototype.getFolderListing = function (context_url, method) {
                             break;
                         case 'thumbview':
                             if (item_number % col_items_number === 0) {
-                                item_html.push('<div class="row-fluid">');
+                                item_html.push('<div class="row">');
                             }
 
                             if (item.is_folderish) {
@@ -1141,11 +1141,11 @@ BrowserDialog.prototype.displayPanel = function(panel, upload_allowed) {
         } else {
             jq('#browseimage_panel #general_panel', document).removeClass('span9').addClass('span12');;
         }
-        jq('#browseimage_panel', document).removeClass('hide').addClass('row-fluid');
+        jq('#browseimage_panel', document).removeClass('hide').addClass('row');
         jq('#insert-selection', document).attr('disabled','disabled');
         jq('#upload-button', document).removeClass('hide');
     } else {
-        jq('#browseimage_panel', document).removeClass('row-fluid').addClass('hide');
+        jq('#browseimage_panel', document).removeClass('row').addClass('hide');
         jq('#upload-button', document).addClass('hide');
     }
 

@@ -15,6 +15,7 @@
       class=".utils.BootstrapView"
       allowed_interface=".interfaces.IBootstrapView"
       permission="zope.Public"
+      layer=".interfaces.IThemeSpecific"
     />
 
 
@@ -25,8 +26,9 @@
       template="dropdownmenu.pt"
       manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
       permission="zope2.View"
+      layer=".interfaces.IThemeSpecific"
       />
-      
+
   <browser:page
         name="plonetheme_navigation_root"
         for="*"
@@ -38,6 +40,8 @@
 
   <browser:resource
     name="bootstrap-integration.js"
-    file="bootstrap-integration.js"/>
+    file="bootstrap-integration.js"
+    layer=".interfaces.IThemeSpecific"
+    />
 
 </configure>

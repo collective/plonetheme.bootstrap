@@ -4,12 +4,11 @@
      tal:condition="ploneview/showEditableBorder">
 
     <tal:block define="view_actions view/prepareObjectTabs;">
-
         <p class="hidden"
             tal:condition="view_actions"
             i18n:translate="heading_views">Views</p>
 
-        <ul class="nav nav-pills pull-left"
+        <ul class="nav nav-tabs pull-left"
             id="edit-content-views"
             i18n:domain="plone">
 
@@ -28,6 +27,5 @@
             </tal:views>
 
         </ul>
-
     </tal:block>
 </div>

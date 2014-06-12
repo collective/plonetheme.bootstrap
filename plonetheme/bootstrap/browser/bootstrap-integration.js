@@ -81,18 +81,18 @@ $(document).ready(function(){
     var foundPrimary = false;
     $('div.formControls input[type="submit"]').each(function(){
         var input = $(this);
-        var button = $('<button type="submit" class="btn" name="' + input.attr('name') + '"value="' + input.attr('value') + '">' +
+        var button = $('<button type="submit" class="btn btn-default" name="' + input.attr('name') + '"value="' + input.attr('value') + '">' +
             input.attr('value') + '</button>');
 
         if(input.hasClass('context') && !foundPrimary){
-            button.addClass('primary');
+            button.addClass('btn-primary');
             foundPrimary = true;
         }
         input.replaceWith(button);
     });
 
     /* Add btn class to the rest form buttons */
-    $('input[type="submit"], input[type="button"]').addClass('btn');
+    $('input[type="submit"], input[type="button"]').addClass('btn btn-default');
 
     /* Edit form tabs */
     $('form ul.formTabs').each(function(){
@@ -133,6 +133,21 @@ $(document).ready(function(){
     $(hiddenviewlet).addClass('text-danger');
     $('.template-manage-viewlets .hiddenViewlet').prepend(hiddenviewlet);
 
+
+    /* Edit forms */
+    $('.template-edit input[type=text]').addClass('form-control');
+    $('.template-edit textarea').addClass('form-control');
+    $('.template-edit select').addClass('form-control');
+    $('.template-edit textarea').attr('rows', 10);
+
+    $('#fieldset-dates').addClass('form-inline');
+    $('#formfield-form-widgets-IDublinCore-effective').addClass('form-group');
+
+    /* Multilingual edit forms */
+    $('#babel-edit input[type=text]').addClass('form-control');
+    $('#babel-edit textarea').addClass('form-control');
+    $('#babel-edit select').addClass('form-control');
+    $('#babel-edit textarea').attr('rows', 10);
     /*
     $('ul#navigation li[data-dropdown="dropdown"]').hover(function(){
         $(this).addClass('open');

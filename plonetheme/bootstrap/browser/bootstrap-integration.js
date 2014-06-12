@@ -150,6 +150,10 @@ $(document).ready(function(){
     $('#babel-edit textarea').attr('rows', 10);
 
 
+    /* Content-tree input */
+    $('.autocompleteInputWidget').on('DOMSubtreeModified', function(){
+        $('.autocompleteInputWidget .option .label').removeClass('label');
+    })
 
     /*
     $('ul#navigation li[data-dropdown="dropdown"]').hover(function(){

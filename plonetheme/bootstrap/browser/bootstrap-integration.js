@@ -118,7 +118,7 @@ $(document).ready(function(){
 
 
     /* Plone's default class for tables */
-    $('table.listing').addClass('zebra-striped');
+    $('table.listing').addClass('table').addClass('table-striped');
 
     /* Fix archetypes forms if there's any */
     fixArchetypesForms();
@@ -148,6 +148,9 @@ $(document).ready(function(){
     $('#babel-edit textarea').addClass('form-control');
     $('#babel-edit select').addClass('form-control');
     $('#babel-edit textarea').attr('rows', 10);
+
+
+
     /*
     $('ul#navigation li[data-dropdown="dropdown"]').hover(function(){
         $(this).addClass('open');

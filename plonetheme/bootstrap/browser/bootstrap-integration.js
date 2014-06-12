@@ -127,6 +127,12 @@ $(document).ready(function(){
     /* Convert all 'hiddenStructure' classes to 'hidden' */
     $('.hiddenStructure').addClass('hidden');
 
+    $('.template-manage-viewlets .hide').removeClass('hide');
+    $('.template-manage-viewlets .show').removeClass('show');
+    var hiddenviewlet = $('<span>This viewlet is hidden and will not be shown</span>');
+    $(hiddenviewlet).addClass('text-danger');
+    $('.template-manage-viewlets .hiddenViewlet').prepend(hiddenviewlet);
+
     /*
     $('ul#navigation li[data-dropdown="dropdown"]').hover(function(){
         $(this).addClass('open');

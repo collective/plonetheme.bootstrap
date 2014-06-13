@@ -134,20 +134,20 @@ $(document).ready(function(){
     $('.template-manage-viewlets .hiddenViewlet').prepend(hiddenviewlet);
 
 
-    /* Edit forms */
-    $('.template-edit input[type=text]').addClass('form-control');
-    $('.template-edit textarea').addClass('form-control');
-    $('.template-edit select').addClass('form-control');
-    $('.template-edit textarea').attr('rows', 10);
+    /* forms */
+    $('form').addClass('form');
+    $('form input[type=text]').addClass('form-control');
+    $('form input[type=password]').addClass('form-control');
+    $('form textarea').addClass('form-control');
+    $('form select').addClass('form-control');
+    $('form textarea').attr('rows', 10);
 
+    /* login form */
+    $('.template-login_form').addClass('form-inline');
+
+    /* Date fields */
     $('#fieldset-dates').addClass('form-inline');
-    $('#formfield-form-widgets-IDublinCore-effective').addClass('form-group');
-
-    /* Multilingual edit forms */
-    $('#babel-edit input[type=text]').addClass('form-control');
-    $('#babel-edit textarea').addClass('form-control');
-    $('#babel-edit select').addClass('form-control');
-    $('#babel-edit textarea').attr('rows', 10);
+    $('.date-field').parent().addClass('form-inline')
 
 
     /* Content-tree input */
@@ -155,6 +155,16 @@ $(document).ready(function(){
         $('.autocompleteInputWidget .option .label').removeClass('label');
     })
 
+    $('.fieldErrorBox').each(function(){
+        if ($(this).text() != "") {
+            $(this).parent().addClass('has-error');
+            $(this).wrapInner('<span class="text-danger"></span>');
+        }
+    });
+
+
+    /* Text format selector for RichText fields */
+    $('.fieldTextFormat').addClass('form-inline').addClass('pull-right');
     /*
     $('ul#navigation li[data-dropdown="dropdown"]').hover(function(){
         $(this).addClass('open');

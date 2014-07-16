@@ -5,6 +5,12 @@
 
   <include package="z3c.jbot" />
 
+  <interface
+    interface=".interfaces.IThemeSpecific"
+    type="zope.publisher.interfaces.browser.IBrowserSkinType"
+    name="Bootstrap Theme"
+    />
+
   <browser:jbot
       layer=".interfaces.IThemeSpecific"
       directory="templates" />
@@ -14,7 +20,7 @@
       for="*"
       class=".utils.BootstrapView"
       allowed_interface=".interfaces.IBootstrapView"
-      permission="zope.Public"
+      permission="zope2.View"
       layer=".interfaces.IThemeSpecific"
     />
 

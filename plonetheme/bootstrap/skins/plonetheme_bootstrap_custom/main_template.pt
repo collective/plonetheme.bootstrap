@@ -1,5 +1,4 @@
 <metal:page define-macro="master"><tal:doctype tal:replace="structure string:&lt;!DOCTYPE html&gt;" />
-
 <html xmlns="http://www.w3.org/1999/xhtml"
     tal:define="portal_state context/@@plone_portal_state;
         context_state context/@@plone_context_state;
@@ -55,14 +54,20 @@
     tal:attributes="class body_class;
                     dir python:isRTL and 'rtl' or 'ltr'">
 
-    <div id="visual-portal-wrapper">
-        <header tal:condition="not:ajax_load">
-            <div id="portal-header-wrapper" class="container">
-                <div tal:replace="structure provider:plone.portaltop" />
-            </div>
-        </header>
-        <div id="portal-columns" class="container">
+    <div id="visual-portal-wrapper" class="container">
             <div class="row">
+                <div class="col-md-12">
+
+                    <header tal:condition="not:ajax_load">
+                        <div id="portal-header-wrapper">
+                            <div tal:replace="structure provider:plone.portaltop" />
+                        </div>
+                    </header>
+                </div>
+            </div>
+
+        <div id="portal-columns" class="row">
+
                 <tal:notajax tal:condition="not:ajax_load">
                 <div id="portal-column-one"
                     class="cell width-1:4 position-0"
@@ -77,74 +82,88 @@
 
                 <div id="portal-column-content" class="cell"
                      tal:attributes="class classes/content">
-
-                    <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" tal:condition="not:ajax_load" />
-
-                    <metal:block define-slot="content">
-                        <div metal:define-macro="content"
-                            tal:define="show_border context/@@plone/showEditableBorder; show_border python:show_border and not ajax_load"
-                            tal:attributes="class python:show_border and 'documentEditable' or ''">
-
-                            <div id="editing-bar"
-                                class="row"
-                                tal:condition="show_border"
-                                tal:content="structure provider:plone.contentviews" />
-
-                            <div metal:use-macro="context/global_statusmessage/macros/portal_message">
-                             Status message
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" tal:condition="not:ajax_load" />
                             </div>
-
-                            <metal:slot define-slot="body">
-                                <div id="content">
-
-                                    <metal:header define-slot="header" tal:content="nothing">
-                                    Visual Header
-                                    </metal:header>
-
-                                    <metal:bodytext define-slot="main">
-
-                                     <div id="viewlet-above-content-title" tal:content="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
-                                     <metal:title define-slot="content-title">
-                                         <metal:comment tal:content="nothing">
-                                             If you write a custom title always use
-                                             <h1 class="documentFirstHeading"></h1> for it
-                                         </metal:comment>
-                                         <h1 metal:use-macro="context/kss_generic_macros/macros/generic_title_view">
-                                             Generic KSS Title. Is rendered with class="documentFirstHeading".
-                                         </h1>
-                                     </metal:title>
-                                     <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" tal:condition="not:ajax_load" />
-
-                                     <metal:description define-slot="content-description">
-                                         <metal:comment tal:content="nothing">
-                                             If you write a custom description always use
-                                             <div class="documentDescription"></div> for it
-                                         </metal:comment>
-                                         <div metal:use-macro="context/kss_generic_macros/macros/generic_description_view">
-                                             Generic KSS Description. Is rendered with class="documentDescription".
-                                         </div>
-                                     </metal:description>
-
-                                     <div id="viewlet-above-content-body" tal:content="structure provider:plone.abovecontentbody" tal:condition="not:ajax_load" />
-                                     <div id="content-core">
-                                         <metal:text define-slot="content-core" tal:content="nothing">
-                                             Page body text
-                                         </metal:text>
-                                     </div>
-                                     <div id="viewlet-below-content-body" tal:content="structure provider:plone.belowcontentbody" tal:condition="not:ajax_load" />
-
-                                    </metal:bodytext>
-                                </div>
-                            </metal:slot>
-
-                            <metal:sub define-slot="sub" tal:content="nothing">
-                               This slot is here for backwards compatibility only.
-                               Don't use it in your custom templates.
-                            </metal:sub>
                         </div>
-                    </metal:block>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <metal:block define-slot="content">
+                                    <div metal:define-macro="content"
+                                        tal:define="show_border context/@@plone/showEditableBorder; show_border python:show_border and not ajax_load"
+                                        tal:attributes="class python:show_border and 'documentEditable' or ''">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-12">
 
-                    <div id="viewlet-below-content" tal:content="structure provider:plone.belowcontent" tal:condition="not:ajax_load" />
+                                                    <div id="editing-bar"
+                                                        tal:condition="show_border"
+                                                        tal:content="structure provider:plone.contentviews" />
+
+                                                    <div metal:use-macro="context/global_statusmessage/macros/portal_message">
+                                                     Status message
+                                                    </div>
+
+                                                    <metal:slot define-slot="body">
+                                                        <div id="content">
+
+                                                            <metal:header define-slot="header" tal:content="nothing">
+                                                            Visual Header
+                                                            </metal:header>
+
+                                                            <metal:bodytext define-slot="main">
+
+                                                             <div id="viewlet-above-content-title" tal:content="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
+                                                             <metal:title define-slot="content-title">
+                                                                 <metal:comment tal:content="nothing">
+                                                                     If you write a custom title always use
+                                                                     <h1 class="documentFirstHeading"></h1> for it
+                                                                 </metal:comment>
+                                                                 <h1 metal:use-macro="context/kss_generic_macros/macros/generic_title_view">
+                                                                     Generic KSS Title. Is rendered with class="documentFirstHeading".
+                                                                 </h1>
+                                                             </metal:title>
+                                                             <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" tal:condition="not:ajax_load" />
+
+                                                             <metal:description define-slot="content-description">
+                                                                 <metal:comment tal:content="nothing">
+                                                                     If you write a custom description always use
+                                                                     <div class="documentDescription"></div> for it
+                                                                 </metal:comment>
+                                                                 <div metal:use-macro="context/kss_generic_macros/macros/generic_description_view">
+                                                                     Generic KSS Description. Is rendered with class="documentDescription".
+                                                                 </div>
+                                                             </metal:description>
+
+                                                             <div id="viewlet-above-content-body" tal:content="structure provider:plone.abovecontentbody" tal:condition="not:ajax_load" />
+                                                             <div id="content-core">
+                                                                 <metal:text define-slot="content-core" tal:content="nothing">
+                                                                     Page body text
+                                                                 </metal:text>
+                                                             </div>
+                                                             <div id="viewlet-below-content-body" tal:content="structure provider:plone.belowcontentbody" tal:condition="not:ajax_load" />
+
+                                                            </metal:bodytext>
+                                                        </div>
+                                                    </metal:slot>
+
+                                                    <metal:sub define-slot="sub" tal:content="nothing">
+                                                       This slot is here for backwards compatibility only.
+                                                       Don't use it in your custom templates.
+                                                    </metal:sub>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </metal:block>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="viewlet-below-content" tal:content="structure provider:plone.belowcontent" tal:condition="not:ajax_load" />
+                            </div>
+                        </div>
                 </div>
 
                 <tal:notajax tal:condition="not:ajax_load">
@@ -158,18 +177,19 @@
                     </metal:portlets>
                 </div>
                 </tal:notajax>
-            </div>
         </div>
 
-        <footer tal:condition="not:ajax_load">
-            <div id="portal-footer-wrapper"
-                class="container">
-                <div class="row">
-                    <div tal:replace="structure provider:plone.portalfooter" />
+            <div class="row">
+                <div class="col-md-12">
+                    <footer tal:condition="not:ajax_load">
+                        <div id="portal-footer-wrapper">
+                                <div tal:replace="structure provider:plone.portalfooter" />
+                        </div>
+                    </footer>
                 </div>
             </div>
-        </footer>
     </div>
+
 </body>
 </html>
 </metal:page>

@@ -1,5 +1,5 @@
 <div i18n:domain="plone"
-     class="editContentActions"
+     class="editContentActions pull-right"
      tal:define="ploneview context/@@plone"
      tal:condition="ploneview/showEditableBorder">
 

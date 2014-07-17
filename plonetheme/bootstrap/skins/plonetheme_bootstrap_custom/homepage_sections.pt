@@ -36,7 +36,7 @@
                 <metal:main define-macro="nav_main">
                 <li tal:attributes="class python:selected_portal_tab=='index_html' and 'home active' or 'home'"><a tal:condition="python:level==1"
                                 tal:define="navigation_view context/@@plonetheme_navigation_root"
-                                tal:attributes="href navigation_view/navigation_root_url" i18n:translate="Home" i18n:domain="plone"></a></li>
+                                tal:attributes="href navigation_view/navigation_root_url" i18n:translate="Home" i18n:domain="plone">Home</a></li>
                 <tal:navitem repeat="node children">
                 <li tal:define="children   node/children;
                                 item       node/item;

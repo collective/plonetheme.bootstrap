@@ -86,14 +86,13 @@
                                 <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" tal:condition="not:ajax_load" />
 
                         <div class="row">
-                            <div class="col-md-6" tal:attributes="class classes/content">
+                            <div class="col-md-12">
                                 <metal:block define-slot="content">
                                     <div metal:define-macro="content"
                                         tal:define="show_border context/@@plone/showEditableBorder; show_border python:show_border and not ajax_load"
                                         tal:attributes="class python:show_border and 'documentEditable' or ''">
-                                        <div class="container">
                                             <div class="row">
-												<div class="col-md-6" tal:attributes="class classes/content">
+												<div class="col-md-12">
                                                     <div id="editing-bar"
                                                         tal:condition="show_border"
                                                         tal:content="structure provider:plone.contentviews" />
@@ -151,14 +150,12 @@
                                                     </metal:sub>
 												</div>
                                             </div>
-                                        </div>
                                     </div>
                                 </metal:block>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6"
-									tal:attributes="class classes/content">
+                            <div class="col-md-12">
                                 <div id="viewlet-below-content" tal:content="structure provider:plone.belowcontent" tal:condition="not:ajax_load" />
                             </div>
                         </div>

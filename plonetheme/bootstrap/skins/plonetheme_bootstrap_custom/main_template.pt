@@ -70,7 +70,7 @@
 
                 <tal:notajax tal:condition="not:ajax_load">
                 <div id="portal-column-one"
-                    class="cell width-1:4 position-0"
+                    class="col-md-3"
                     metal:define-slot="column_one_slot"
                     tal:condition="sl"
                     tal:attributes="class classes/one">
@@ -80,23 +80,19 @@
                 </div>
                 </tal:notajax>
 
-                <div id="portal-column-content" class="cell"
+                <div id="portal-column-content" class="col-md-6"
                      tal:attributes="class classes/content">
-                        <div class="row">
-                            <div class="col-md-12">
+
                                 <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" tal:condition="not:ajax_load" />
-                            </div>
-                        </div>
+
                         <div class="row">
                             <div class="col-md-12">
                                 <metal:block define-slot="content">
                                     <div metal:define-macro="content"
                                         tal:define="show_border context/@@plone/showEditableBorder; show_border python:show_border and not ajax_load"
                                         tal:attributes="class python:show_border and 'documentEditable' or ''">
-                                        <div class="container">
                                             <div class="row">
-                                                <div class="col-md-12">
-
+												<div class="col-md-12">
                                                     <div id="editing-bar"
                                                         tal:condition="show_border"
                                                         tal:content="structure provider:plone.contentviews" />
@@ -152,9 +148,8 @@
                                                        This slot is here for backwards compatibility only.
                                                        Don't use it in your custom templates.
                                                     </metal:sub>
-                                                </div>
+												</div>
                                             </div>
-                                        </div>
                                     </div>
                                 </metal:block>
                             </div>
@@ -168,7 +163,7 @@
 
                 <tal:notajax tal:condition="not:ajax_load">
                 <div id="portal-column-two"
-                    class="cell width-1:4 position-3:4"
+                    class="col-md-3"
                     metal:define-slot="column_two_slot"
                     tal:condition="sr"
                     tal:attributes="class classes/two">

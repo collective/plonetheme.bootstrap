@@ -8,7 +8,7 @@
             tal:condition="view_actions"
             i18n:translate="heading_views">Views</p>
 
-        <ul class="nav nav-tabs pull-left"
+        <ul class="nav nav-tabs pull-left col-md-12"
             id="edit-content-views"
             i18n:domain="plone">
 

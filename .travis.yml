@@ -14,7 +14,6 @@ install:
   - mkdir -p buildout-cache/eggs
   - mkdir -p buildout-cache/downloads
   - python bootstrap.py -c base.cfg
-  - bin/buildout -N -t 3 -c base.cfg install download install
   - bin/buildout -N -t 3 -c base.cfg
 before_script:
   - "export DISPLAY=:99.0"

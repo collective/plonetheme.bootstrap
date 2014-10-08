@@ -5,6 +5,7 @@
 #plonebrowser .formHelp { background: #F5F5F5; height: 2em; clear: both; margin: 0; padding-left: 5px; font-size: 10px; }
 #plonebrowser .formHelp img { position: absolute; margin-top: 4px; }
 #plonebrowser .formHelp #internalpath span, #plonebrowser .formHelp #internalpath a { padding-left: 13px; }
+#plonebrowser .row {margin: 0;}
 #externalimage_panel .field { margin-bottom: 10px; }
 #imgpreview { text-align: center; }
 #details_panel, #addimage_panel { border-left: 1px solid #CCC; padding-left: 6px; }
@@ -29,7 +30,7 @@
 #description { border: 1px solid #CCC; }
 #uploadbutton { margin-top: 10px; }
 #previewimagecontainer { text-align: center; }
-#internallinkcontainer { width: 100%; height: 370px; position: relative; }
+#internallinkcontainer { width: 100%; height: 320px; position: relative; }
 #internallinkcontainer div.item:hover { cursor: pointer; background-color: #EEE; }
 #internallinkcontainer .thumbnail.folderish a { color: #000; border: none!important; display: block; text-align: center; }
 #internallinkcontainer .list span { margin-left: 0.5em; }
@@ -57,7 +58,7 @@ input[disabled] { background: #F6F6F6; border: 1px solid #E6E6E6; color: #B2C3D9
 
 /* image plugin css */
 .thumbnail { border: 0.1em solid #fff; margin-top: 5px; overflow: hidden; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
-.thumbnail:hover { border: 0.1em solid #ddd; position:absolute; z-index:2; }
+/*.thumbnail:hover { border: 0.1em solid #ddd; position:absolute; z-index:2; }*/
 *+html .thumbnail:hover { position:relative; z-index:2; }
 .thumbnail:hover p { word-wrap: break-word; overflow:visible; text-overflow: visible; white-space:normal; }
 .thumbnail p { overflow: hidden; text-overflow: ellipsis; white-space:nowrap; margin-bottom: 0; text-align: center; padding:0 5px; }

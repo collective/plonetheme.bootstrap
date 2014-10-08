@@ -8,10 +8,10 @@
   <script type="text/javascript" src="../../utils/form_utils.js"></script>
   <script type="text/javascript" src="js/plonebrowser.js"></script>
   <link rel="stylesheet" type="text/css" href="css/plonebrowser.css" />
-  <link rel="stylesheet" type="text/css" tal:attributes="href string:${portal_url}/portal_css/columns.css" />
+
 </head>
 <body id="plonebrowser">
-  <div class="dialog-wrapper icons-on" id="content">
+  <div class="dialog-wrapper icons-on container-fluid" id="content">
 
         <div id="linktype_panel">
             <div id="linktype">
@@ -35,7 +35,7 @@
         </div>
 
         <div id="browseimage_panel" class="row">
-            <div id="general_panel" class="col-md-12">
+            <div id="general_panel" class="col-sm-12">
                 <div class="field">
 
                     <div class="widget">
@@ -63,7 +63,7 @@
 
             </div>
 
-            <div id="details_panel" class="col-md-3">
+            <div id="details_panel" class="col-sm-3">
                 <h2 i18n:translate="" i18n:domain="plone.tinymce">Details</h2>
                 <div id="details-fields" class="widget radioscrolllist input-border">
                     <div class="field">
@@ -124,7 +124,7 @@
                 </div>
             </div>
 
-            <div id="addimage_panel" class="col-md-3">
+            <div id="addimage_panel" class="col-sm-3">
                  <h2></h2>
                  <form name="upload_form" id="upload_form" method="post" target="upload_iframe" enctype="multipart/form-data">
                      <div class="field">
@@ -163,7 +163,7 @@
 
         </div>
 
-        <div id="externalimage_panel" class="col-md-12">
+        <div id="externalimage_panel" class="col-sm-12">
              <form name="externalimage_form" id="externalimage_form">
                  <div class="field">
                         <label for="imageurl" i18n:domain="plone.tinymce" i18n:translate="">Insert image from URL</label>
@@ -195,7 +195,7 @@
         <!-- link panels -->
         <div id="external_panel" class="hide">
             <div class="row">
-                <div id="external-column" class="col-md-8">
+                <div id="external-column" class="col-sm-8">
                     <h2 i18n:domain="plone.tinymce" i18n:translate="">External link</h2>
 
                     <div class="field">
@@ -211,7 +211,7 @@
                     </div>
                 </div>
 
-                <div id="preview-column" class="col-md-8">
+                <div id="preview-column" class="col-sm-8">
                     <div class="field">
                         <label for="preview" i18n:translate="preview_preview_desc"></label>
                         <div id="preview-wrapper">
@@ -258,10 +258,10 @@
         <div class="visualClear"><!-- --></div>
 
         <div id="tinymcefooter" class="row">
-            <div id="upload-button" class="col-md-9">
+            <div id="upload-button" class="col-sm-9">
                 <img src="img/application_get.png" /> <a id="upload" href="" i18n:translate="" i18n:domain="plone.tinymce">Upload</a>
             </div>
-            <div id="action-button" class="col-md-3">
+            <div id="action-button" class="col-sm-3">
                 <input type="submit" id="insert-selection" class="context plonebutton" name="insert-image"
                        i18n:attributes="value" i18n:domain="plone.tinymce" value="OK" disabled="disabled" />
             </div>

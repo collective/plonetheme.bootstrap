@@ -889,7 +889,7 @@ BrowserDialog.prototype.getFolderListing = function (context_url, method) {
 
                             if (item.is_folderish) {
                                 jq.merge(item_html, [
-                                    '<div class="span3">',
+                                    '<div class="col-sm-3">',
                                         '<div class="thumbnail item folderish" title="' + item.description +  '">',
                                             '<div style="width: ' + thumb_width + 'px; height: ' + thumb_height + 'px" class="thumb">',
                                                 '<img src="img/folder_big.png" alt="' + item.title + '" />',
@@ -902,7 +902,7 @@ BrowserDialog.prototype.getFolderListing = function (context_url, method) {
                                 ]);
                             } else {
                                 jq.merge(item_html, [
-                                    '<div class="span3">',
+                                    '<div class="col-sm-3">',
                                         '<div class="thumbnail item" title="' + item.description +  '">',
                                             '<div style="width: ' + thumb_width + 'px; height: ' + thumb_height + 'px" class="thumb">',
                                                 '<img src="' + item.url + '/@@images/image/' + thumb_name + '" alt="' + item.title + '" />',
@@ -1137,9 +1137,9 @@ BrowserDialog.prototype.displayPanel = function(panel, upload_allowed) {
     // handle browse panel
     if (jq.inArray(panel, ["search", "details", "browse", "upload"]) > -1) {
         if (jq.inArray(panel, ["upload", "details"]) > -1) {
-            jq('#browseimage_panel #general_panel', document).removeClass('span12').addClass('span9');
+            jq('#browseimage_panel #general_panel', document).removeClass('col-sm-12').addClass('col-sm-9');
         } else {
-            jq('#browseimage_panel #general_panel', document).removeClass('span9').addClass('span12');;
+            jq('#browseimage_panel #general_panel', document).removeClass('col-sm-9').addClass('col-sm-12');;
         }
         jq('#browseimage_panel', document).removeClass('hide').addClass('row');
         jq('#insert-selection', document).attr('disabled','disabled');

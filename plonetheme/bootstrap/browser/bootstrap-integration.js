@@ -178,4 +178,6 @@ $(document).ready(function(){
         window.location = $(this).attr('href');
     });
     */
+    /* Make the portal_messages redish in case of error */
+    $('.alert-error').removeClass('alert-error').addClass('alert-danger');
 });

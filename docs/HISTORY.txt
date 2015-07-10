@@ -4,6 +4,7 @@ Changelog
 2.0 (UNRELEASED)
 -------------------
 
+- Add browserlayer on uninstall profile [bsuttor]
 - Drop Twitter Bootstrap 2.3.x support, now version 3.0 is required [erral]
 
 1.0 (2014-01-24)

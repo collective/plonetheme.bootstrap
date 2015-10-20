@@ -8,7 +8,7 @@
     <tal:block i18n:domain="plone"
                metal:define-macro="portal_message">
 
-        <div class="alert" id="kssPortalMessage" style="display:none">
+        <div class="alert alert-dismissible" id="kssPortalMessage" style="display:none">
           <button type="button" class="close" data-dismiss="alert">×</button>
           <strong>Info</strong> <tal:block replace="nothing">KSS portal message</tal:block>
         </div>
@@ -18,7 +18,7 @@
                        tal:repeat="message messages">
 
             <div class="alert alert-block"
-                 tal:attributes="class string:alert alert-${message/type}">
+                 tal:attributes="class string:alert alert-${message/type} alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert">×</button>
                 <strong tal:define="mtype message/type | nothing;"
                         tal:content="python:mtype.capitalize()"

@@ -3,3 +3,7 @@ include *.txt
 include *.rst
 recursive-include docs *
 global-exclude *pyc
+include *.py
+include *.zcml
+include base.cfg
+include buildout.cfg

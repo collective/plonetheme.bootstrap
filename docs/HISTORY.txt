@@ -1,8 +1,8 @@
 Changelog
 =========
 
-2.0 (UNRELEASED)
--------------------
+2.0 (2015-12-10)
+----------------
 
 - Document the use of latest Bootstrap version and latest jquery [erral]
 - Add browserlayer on uninstall profile [bsuttor]

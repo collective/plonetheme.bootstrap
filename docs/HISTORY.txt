@@ -4,6 +4,7 @@ Changelog
 2.0 (UNRELEASED)
 -------------------
 
+- Document the use of latest Bootstrap version and latest jquery [erral]
 - Add browserlayer on uninstall profile [bsuttor]
 - Drop Twitter Bootstrap 2.3.x support, now version 3.0 is required [erral]
 

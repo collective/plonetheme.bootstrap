@@ -349,8 +349,8 @@ BrowserDialog.prototype.init = function () {
             } else {
                 scaled_image = this.parseImageScale(selected_node.attr("src"));
 
-                // Update the dimensions <select> with the corresponding value.
-                jq('#dimensions', document).val(scaled_image.scale);
+                // Store the selected scale on the dimensions <select>.
+                jq('#dimensions', document).data('selectedScale', scaled_image.scale);
 
                 if (scaled_image.url.indexOf('resolveuid/') > -1) {
                     /** Handle UID linked image **/
@@ -492,7 +492,8 @@ BrowserDialog.prototype.insertLink = function () {
 
     switch (active_panel) {
         case "#internal":
-            link = this.current_link;
+            link = this.editor.convertURL(this.current_link);
+
             anchor = jq('#pageanchor', document).val();
             if (anchor) {
                 link += '#' + anchor;
@@ -591,7 +592,7 @@ BrowserDialog.prototype.insertImage = function () {
     var attrs = {},
         jq = top.jQuery,
         selected_node = this.editor.selection.getNode(),
-        href = this.current_link,
+        href = this.editor.convertURL(this.current_link),
         active_panel = jq('#linktype .current a', document).attr('href'),
         dimension,
         classes;
@@ -738,7 +739,7 @@ BrowserDialog.prototype.setDetails = function (url) {
         'url': url + '/tinymce-jsondetails',
         'dataType': 'json',
         'success': function (data) {
-            var dimension = jq('#dimensions', document).val(),
+            var dimension = jq('#dimensions', document).data('selectedScale'),
                 dimensions,
                 i;
 
@@ -794,11 +795,12 @@ BrowserDialog.prototype.setDetails = function (url) {
             }
 
             if (data.anchors.length > 0) {
-                html = "";
+                html = '<option value="">top of page (default)</option>';
                 for (i = 0; i < data.anchors.length; i++) {
                     html += '<option value="' + data.anchors[i] + '">' + data.anchors[i] + '</option>';
                 }
-                jq('#pageanchor', document).append(html);
+                jq('#pageanchor', document).html(html);
+                jq('#pageanchorcontainer', document).parents('.field').removeClass('hide');
             } else {
                 jq('#pageanchorcontainer', document).parents('.field').addClass('hide');
             }
@@ -873,14 +875,14 @@ BrowserDialog.prototype.getFolderListing = function (context_url, method) {
                                 }
                                 jq.merge(folder_html, [
                                         item.icon,
-                                        '<a href="' + item.url + '" class="folderlink contenttype-' + item.normalized_type + ' state-' + item.review_state + '">',
+                                        '<a href="' + item.url + '" class="folderlink contenttype-' + item.normalized_type + ' state-' + item.review_state + '" title="' + item.description + ((item.description) ? '&#13;&#13;' : '') + item.path + '">',
                                             item.title,
                                         '</a>',
                                     '</div>'
                                 ]);
                             } else {
                                 jq.merge(item_html, [
-                                    '<div class="item list ' + (i % 2 === 0 ? 'even' : 'odd') + '" title="' + item.description + '">',
+                                    '<div class="item list ' + (i % 2 === 0 ? 'even' : 'odd') + '" title="' + item.description + ((item.description) ? '&#13;&#13;' : '') + item.path + '">',
                                         '<input href="' + item.url + '" ',
                                             'type="radio" class="noborder" style="margin: 0; width: 16px" name="internallink" value="',
                                             'resolveuid/' + item.uid ,
@@ -986,7 +988,11 @@ BrowserDialog.prototype.getFolderListing = function (context_url, method) {
                 if (i === len - 1) {
                     html.push('<span>' + item.title + '</span>');
                 } else {
-                    html.push('<a href="' + item.url + '">' + item.title + '</a>');
+                    if (item.unaccessible) {
+                      html.push('<em>' + item.title + '</em>');
+                    } else {
+                      html.push('<a href="' + item.url + '">' + item.title + '</a>');
+                    }
                 }
             });
             jq('#internalpath', document).html(html.join(''));
@@ -1209,6 +1215,10 @@ BrowserDialog.prototype.populateAnchorList = function () {
     nodes_length = nodes.length;
     for (i = 0; i < nodes_length; i++) {
         if ((name = this.editor.dom.getAttrib(nodes[i], "name")) !== "") {
+            html += '<div class="' + divclass + '"><input type="radio" class="noborder" name="anchorlink" id="#' + name + '" value="#' + name + '"/> <label for="#' + name + '">' + name + '</label></div>';
+            divclass = divclass === "even" ? "odd" : "even";
+        }
+        if ((name = nodes[i].id) !== "" && !nodes[i].href) {
             html += '<div class="' + divclass + '"><input type="radio" class="noborder" name="anchorlink" id="#' + name + '" value="#' + name + '"/> <label for="#' + name + '">' + name + '</label></div>';
             divclass = divclass === "even" ? "odd" : "even";
         }

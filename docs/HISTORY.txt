@@ -4,7 +4,11 @@ Changelog
 2.1 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Do not try to be too smart with internal links
+  [ionlizarazu]
+
+- Update to latest Products.TinyMCE.
+  [erral]
 
 
 2.0 (2015-12-10)

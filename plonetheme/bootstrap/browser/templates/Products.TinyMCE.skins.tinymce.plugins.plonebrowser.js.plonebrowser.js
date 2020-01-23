@@ -227,6 +227,11 @@ BrowserDialog.prototype.init = function () {
                 this.checkExternalURL(href);
                 jq('#cssstyle', document).val(selected_node.attr('style'));
                 jq('#linktype a[href=#external]', document).click();
+            } else if ((href.indexOf('http://') === 0) || (href.indexOf('https://') === 0) || (href.indexOf('ftp://') === 0)) {
+                this.checkExternalURL(href);
+                jq('#cssstyle', document).val(selected_node.attr('style'));
+                jq('#linktype a[href=#external]', document).click();
+                this.current_link=href
             } else {
                 // internal
                 if (href.indexOf('#') !== -1) {
